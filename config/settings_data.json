@@ -8,6 +8,8 @@
     "color_accent_gold": "#C59964",
     "color_accent_soft": "#F3ECE3",
     "color_border": "#E8E0D5",
+    "heading_font": "garamond_n4",
+    "body_font": "assistant_n4",
     "enable_cart_drawer": true,
     "free_shipping_threshold": 45,
     "free_shipping_message": "🎉 You've unlocked Free Express Shipping!",
@@ -26,6 +28,8 @@
       "color_accent_gold": "#C59964",
       "color_accent_soft": "#F3ECE3",
       "color_border": "#E8E0D5",
+      "heading_font": "garamond_n4",
+      "body_font": "assistant_n4",
       "enable_cart_drawer": true,
       "free_shipping_threshold": 45
     }

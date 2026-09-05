@@ -1,9 +1,9 @@
 <section class="nutrition-specs-section" style="padding: 80px 0; background: #FAF7F2; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
   <div class="container">
     <div class="section-header">
-      <span class="text-uppercase-label">● THE VITTAL STANDARD</span>
-      <h2 style="font-size: 2.85rem;">Formulated for Taste.<br>Engineered for Impact.</h2>
-      <p>We eliminated the chalky texture and chemical sugar substitutes common in standard fitness supplements.</p>
+      <span class="text-uppercase-label">{{ section.settings.top_label | default: '● THE VITTAL STANDARD' }}</span>
+      <h2 style="font-size: 2.85rem;">{{ section.settings.heading | default: 'Formulated for Taste.<br>Engineered for Impact.' }}</h2>
+      <p>{{ section.settings.subheading | default: 'We eliminated the chalky texture and chemical sugar substitutes common in standard fitness supplements.' }}</p>
     </div>
 
     <!-- 3 Formula Columns -->
@@ -13,9 +13,9 @@
         <div class="feature-icon-wrap">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
         </div>
-        <h3>Real Colombian Arabica</h3>
-        <p>Cold-extracted over 18 hours to allow temperatures to lock in velvety dark chocolate and hazelnut undertones without harsh acidity.</p>
-        <span class="feature-tag">120MG NATURAL CAFFEINE</span>
+        <h3>{{ section.settings.formula_1_title | default: 'Real Colombian Arabica' }}</h3>
+        <p>{{ section.settings.formula_1_desc | default: 'Cold-extracted over 18 hours to allow temperatures to lock in velvety dark chocolate and hazelnut undertones without harsh acidity.' }}</p>
+        <span class="feature-tag">{{ section.settings.formula_1_tag | default: '120MG NATURAL CAFFEINE' }}</span>
       </div>
 
       <!-- Col 2 -->
@@ -23,9 +23,9 @@
         <div class="feature-icon-wrap">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
         </div>
-        <h3>20g Clean Plant Protein</h3>
-        <p>Dual-source blend of organic yellow pea and sprouted brown rice isolate delivers all 9 essential amino acids with 4.2g naturally occurring BCAAs.</p>
-        <span class="feature-tag">EASY DIGESTION &bull; ZERO BLOAT</span>
+        <h3>{{ section.settings.formula_2_title | default: '20g Clean Plant Protein' }}</h3>
+        <p>{{ section.settings.formula_2_desc | default: 'Dual-source blend of organic yellow pea and sprouted brown rice isolate delivers all 9 essential amino acids with 4.2g naturally occurring BCAAs.' }}</p>
+        <span class="feature-tag">{{ section.settings.formula_2_tag | default: 'EASY DIGESTION • ZERO BLOAT' }}</span>
       </div>
 
       <!-- Col 3 -->
@@ -33,9 +33,9 @@
         <div class="feature-icon-wrap">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
         </div>
-        <h3>Zero Added Sugars</h3>
-        <p>Naturally rounded with pure monk fruit extract and prebiotic soluble tapioca fiber for steady glycemic response and sustained afternoon focus.</p>
-        <span class="feature-tag">ONLY 2G NET CARBS &bull; KETO READY</span>
+        <h3>{{ section.settings.formula_3_title | default: 'Zero Added Sugars' }}</h3>
+        <p>{{ section.settings.formula_3_desc | default: 'Naturally rounded with pure monk fruit extract and prebiotic soluble tapioca fiber for steady glycemic response and sustained afternoon focus.' }}</p>
+        <span class="feature-tag">{{ section.settings.formula_3_tag | default: 'ONLY 2G NET CARBS • KETO READY' }}</span>
       </div>
     </div>
 
@@ -43,37 +43,37 @@
     <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 48px; box-shadow: var(--shadow-sm);">
       <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center;">
         <div>
-          <span class="text-uppercase-label">● NUTRITIONAL TRANSPARENCY</span>
-          <h3 style="font-size: 2rem; margin: 12px 0 16px;">How Vittal Compares to Your Daily Habits</h3>
+          <span class="text-uppercase-label">{{ section.settings.compare_label | default: '● NUTRITIONAL TRANSPARENCY' }}</span>
+          <h3 style="font-size: 2rem; margin: 12px 0 16px;">{{ section.settings.compare_heading | default: 'How Vittal Compares to Your Daily Habits' }}</h3>
           <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.6;">
-            Most commercial iced coffees load your body with 54+ grams of refined cane sugar and zero recovery fuel. Vittal delivers your morning cup into functional nutrition.
+            {{ section.settings.compare_desc | default: 'Most commercial iced coffees load your body with 54+ grams of refined cane sugar and zero recovery fuel. Vittal delivers your morning cup into functional nutrition.' }}
           </p>
         </div>
 
         <!-- 4 Metric Cards -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
           <div style="background: var(--color-surface-soft); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px;">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">PROTEIN MATRIX</div>
-            <div style="font-size: 2.25rem; font-weight: 900; color: var(--color-text);">20<span style="font-size: 1.25rem;">g</span></div>
-            <div style="font-size: 0.75rem; color: var(--color-text-subtle); margin-top: 4px;">40% Recommended Daily Value</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">{{ section.settings.metric_1_label | default: 'PROTEIN MATRIX' }}</div>
+            <div style="font-size: 2.25rem; font-weight: 900; color: var(--color-text);">{{ section.settings.metric_1_val | default: '20g' }}</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-subtle); margin-top: 4px;">{{ section.settings.metric_1_sub | default: '40% Recommended Daily Value' }}</div>
           </div>
 
           <div style="background: var(--color-surface-soft); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px;">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">NATURAL CAFFEINE</div>
-            <div style="font-size: 2.25rem; font-weight: 900; color: var(--color-text);">120<span style="font-size: 1.25rem;">mg</span></div>
-            <div style="font-size: 0.75rem; color: var(--color-text-subtle); margin-top: 4px;">Equivalent to 1.5 espresso shots</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">{{ section.settings.metric_2_label | default: 'NATURAL CAFFEINE' }}</div>
+            <div style="font-size: 2.25rem; font-weight: 900; color: var(--color-text);">{{ section.settings.metric_2_val | default: '120mg' }}</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-subtle); margin-top: 4px;">{{ section.settings.metric_2_sub | default: 'Equivalent to 1.5 espresso shots' }}</div>
           </div>
 
           <div style="background: var(--color-surface-soft); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px;">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">ADDED SUGAR</div>
-            <div style="font-size: 2.25rem; font-weight: 900; color: var(--color-text);">0<span style="font-size: 1.25rem;">g</span></div>
-            <div style="font-size: 0.75rem; color: var(--color-text-subtle); margin-top: 4px;">Sweetened by organic monk fruit</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">{{ section.settings.metric_3_label | default: 'ADDED SUGAR' }}</div>
+            <div style="font-size: 2.25rem; font-weight: 900; color: var(--color-text);">{{ section.settings.metric_3_val | default: '0g' }}</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-subtle); margin-top: 4px;">{{ section.settings.metric_3_sub | default: 'Sweetened by organic monk fruit' }}</div>
           </div>
 
           <div style="background: var(--color-surface-soft); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px;">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">MICRONUTRIENTS</div>
-            <div style="font-size: 2.25rem; font-weight: 900; color: var(--color-text);">100<span style="font-size: 1.25rem;">%</span></div>
-            <div style="font-size: 0.75rem; color: var(--color-text-subtle); margin-top: 4px;">B6, B12, Iron &amp; Zinc Fortified</div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">{{ section.settings.metric_4_label | default: 'MICRONUTRIENTS' }}</div>
+            <div style="font-size: 2.25rem; font-weight: 900; color: var(--color-text);">{{ section.settings.metric_4_val | default: '100%' }}</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-subtle); margin-top: 4px;">{{ section.settings.metric_4_sub | default: 'B6, B12, Iron & Zinc Fortified' }}</div>
           </div>
         </div>
       </div>
@@ -84,7 +84,190 @@
 {% schema %}
 {
   "name": "Nutrition & Specs",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "top_label",
+      "label": "Top Badge Label",
+      "default": "● THE VITTAL STANDARD"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Formulated for Taste.<br>Engineered for Impact."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Section Subheading",
+      "default": "We eliminated the chalky texture and chemical sugar substitutes common in standard fitness supplements."
+    },
+    {
+      "type": "header",
+      "content": "Formula Pillar 1"
+    },
+    {
+      "type": "text",
+      "id": "formula_1_title",
+      "label": "Pillar 1 Title",
+      "default": "Real Colombian Arabica"
+    },
+    {
+      "type": "textarea",
+      "id": "formula_1_desc",
+      "label": "Pillar 1 Description",
+      "default": "Cold-extracted over 18 hours to allow temperatures to lock in velvety dark chocolate and hazelnut undertones without harsh acidity."
+    },
+    {
+      "type": "text",
+      "id": "formula_1_tag",
+      "label": "Pillar 1 Badge",
+      "default": "120MG NATURAL CAFFEINE"
+    },
+    {
+      "type": "header",
+      "content": "Formula Pillar 2"
+    },
+    {
+      "type": "text",
+      "id": "formula_2_title",
+      "label": "Pillar 2 Title",
+      "default": "20g Clean Plant Protein"
+    },
+    {
+      "type": "textarea",
+      "id": "formula_2_desc",
+      "label": "Pillar 2 Description",
+      "default": "Dual-source blend of organic yellow pea and sprouted brown rice isolate delivers all 9 essential amino acids with 4.2g naturally occurring BCAAs."
+    },
+    {
+      "type": "text",
+      "id": "formula_2_tag",
+      "label": "Pillar 2 Badge",
+      "default": "EASY DIGESTION • ZERO BLOAT"
+    },
+    {
+      "type": "header",
+      "content": "Formula Pillar 3"
+    },
+    {
+      "type": "text",
+      "id": "formula_3_title",
+      "label": "Pillar 3 Title",
+      "default": "Zero Added Sugars"
+    },
+    {
+      "type": "textarea",
+      "id": "formula_3_desc",
+      "label": "Pillar 3 Description",
+      "default": "Naturally rounded with pure monk fruit extract and prebiotic soluble tapioca fiber for steady glycemic response and sustained afternoon focus."
+    },
+    {
+      "type": "text",
+      "id": "formula_3_tag",
+      "label": "Pillar 3 Badge",
+      "default": "ONLY 2G NET CARBS • KETO READY"
+    },
+    {
+      "type": "header",
+      "content": "Nutrition Comparison"
+    },
+    {
+      "type": "text",
+      "id": "compare_label",
+      "label": "Comparison Label",
+      "default": "● NUTRITIONAL TRANSPARENCY"
+    },
+    {
+      "type": "text",
+      "id": "compare_heading",
+      "label": "Comparison Heading",
+      "default": "How Vittal Compares to Your Daily Habits"
+    },
+    {
+      "type": "textarea",
+      "id": "compare_desc",
+      "label": "Comparison Description",
+      "default": "Most commercial iced coffees load your body with 54+ grams of refined cane sugar and zero recovery fuel. Vittal delivers your morning cup into functional nutrition."
+    },
+    {
+      "type": "header",
+      "content": "Metric Cards"
+    },
+    {
+      "type": "text",
+      "id": "metric_1_label",
+      "label": "Metric 1 Label",
+      "default": "PROTEIN MATRIX"
+    },
+    {
+      "type": "text",
+      "id": "metric_1_val",
+      "label": "Metric 1 Value",
+      "default": "20g"
+    },
+    {
+      "type": "text",
+      "id": "metric_1_sub",
+      "label": "Metric 1 Subtitle",
+      "default": "40% Recommended Daily Value"
+    },
+    {
+      "type": "text",
+      "id": "metric_2_label",
+      "label": "Metric 2 Label",
+      "default": "NATURAL CAFFEINE"
+    },
+    {
+      "type": "text",
+      "id": "metric_2_val",
+      "label": "Metric 2 Value",
+      "default": "120mg"
+    },
+    {
+      "type": "text",
+      "id": "metric_2_sub",
+      "label": "Metric 2 Subtitle",
+      "default": "Equivalent to 1.5 espresso shots"
+    },
+    {
+      "type": "text",
+      "id": "metric_3_label",
+      "label": "Metric 3 Label",
+      "default": "ADDED SUGAR"
+    },
+    {
+      "type": "text",
+      "id": "metric_3_val",
+      "label": "Metric 3 Value",
+      "default": "0g"
+    },
+    {
+      "type": "text",
+      "id": "metric_3_sub",
+      "label": "Metric 3 Subtitle",
+      "default": "Sweetened by organic monk fruit"
+    },
+    {
+      "type": "text",
+      "id": "metric_4_label",
+      "label": "Metric 4 Label",
+      "default": "MICRONUTRIENTS"
+    },
+    {
+      "type": "text",
+      "id": "metric_4_val",
+      "label": "Metric 4 Value",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "metric_4_sub",
+      "label": "Metric 4 Subtitle",
+      "default": "B6, B12, Iron & Zinc Fortified"
+    }
+  ],
   "presets": [
     {
       "name": "Nutrition & Specs"

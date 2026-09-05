@@ -67,19 +67,19 @@
 
         <!-- Buttons -->
         <div class="hero-cta-group">
-          <a href="/products/vittal-protein-iced-coffee" class="btn btn-primary">
+          <a href="{{ section.settings.cta_url | default: '/products/vittal-protein-iced-coffee' }}" class="btn btn-primary">
             {{ section.settings.cta_text | default: 'Shop Protein Iced Coffee' }}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="#compare" class="btn btn-secondary">
-            Compare Ingredients
+          <a href="{{ section.settings.secondary_cta_url | default: '#compare' }}" class="btn btn-secondary">
+            {{ section.settings.secondary_cta_text | default: 'Compare Ingredients' }}
           </a>
         </div>
 
         <!-- Micro Shipping Notice -->
         <div class="hero-shipping-notice">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          <span>Free US Standard shipping on $45+. Order today, ships within 24 hours.</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span>{{ section.settings.shipping_notice | default: 'Free US Standard shipping on $45+. Order today, ships within 24 hours.' }}</span>
         </div>
       </div>
 
@@ -103,12 +103,16 @@
           <span>Sustained Clean Energy</span>
         </div>
 
-        <img 
-          src="{{ 'vittal-pouch.jpg' | asset_url }}" 
-          alt="Vittal Protein Iced Coffee & Glass" 
-          style="width: 100%; height: 520px; object-fit: cover; display: block; transition: transform 0.6s ease;"
-          class="hero-photo-zoom"
-        />
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1200 | image_tag: class: 'hero-photo-zoom', style: 'width: 100%; height: 520px; object-fit: cover; display: block; transition: transform 0.6s ease;' }}
+        {% else %}
+          <img 
+            src="{{ 'vittal-pouch.jpg' | asset_url }}" 
+            alt="Vittal Protein Iced Coffee & Glass" 
+            style="width: 100%; height: 520px; object-fit: cover; display: block; transition: transform 0.6s ease;"
+            class="hero-photo-zoom"
+          />
+        {% endif %}
       </div>
     </div>
   </div>
@@ -143,10 +147,45 @@
       "default": "Crafted with 100% single-origin Colombian Arabica coffee, ultra-pure 18-hour cold brew, and premium 20g plant protein isolate. Naturally light, fast-dissolving, no grit, zero chemicals."
     },
     {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Product Image"
+    },
+    {
+      "type": "header",
+      "content": "Call To Actions"
+    },
+    {
       "type": "text",
       "id": "cta_text",
-      "label": "CTA Button Text",
+      "label": "Primary CTA Text",
       "default": "Shop Protein Iced Coffee"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Primary CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_text",
+      "label": "Secondary CTA Text",
+      "default": "Compare Ingredients"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_url",
+      "label": "Secondary CTA Link"
+    },
+    {
+      "type": "header",
+      "content": "Notices"
+    },
+    {
+      "type": "text",
+      "id": "shipping_notice",
+      "label": "Shipping Notice Text",
+      "default": "Free US Standard shipping on $45+. Order today, ships within 24 hours."
     }
   ],
   "presets": [

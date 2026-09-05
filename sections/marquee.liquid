@@ -1,33 +1,33 @@
-<div class="marquee-section">
-  <div class="marquee-track">
+<div class="marquee-section" style="background: {{ section.settings.bg_color | default: '#201610' }}; color: {{ section.settings.text_color | default: '#FAF6F0' }}; font-size: {{ section.settings.font_size | default: 13 }}px;">
+  <div class="marquee-track" style="animation-duration: {{ section.settings.speed | default: 25 }}s;">
     <div class="marquee-item">
-      <span>ZERO DAILY SLOW</span>
-      <span class="marquee-bullet"></span>
-      <span>100% SINGLE ORIGIN ARABICA</span>
-      <span class="marquee-bullet"></span>
-      <span>NO CHALK NO HARSH SWEETENER</span>
-      <span class="marquee-bullet"></span>
-      <span>20G CLEAN PLANT PROTEIN</span>
-      <span class="marquee-bullet"></span>
-      <span>SUSTAINED BRAIN FUEL</span>
-      <span class="marquee-bullet"></span>
-      <span>ZERO ADDED SUGAR</span>
-      <span class="marquee-bullet"></span>
+      <span>{{ section.settings.item_1 | default: 'ZERO DAILY SLOW' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_2 | default: '100% SINGLE ORIGIN ARABICA' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_3 | default: 'NO CHALK NO HARSH SWEETENER' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_4 | default: '20G CLEAN PLANT PROTEIN' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_5 | default: 'SUSTAINED BRAIN FUEL' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_6 | default: 'ZERO ADDED SUGAR' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
     </div>
     <!-- Duplicate for infinite smooth loop -->
     <div class="marquee-item" aria-hidden="true">
-      <span>ZERO DAILY SLOW</span>
-      <span class="marquee-bullet"></span>
-      <span>100% SINGLE ORIGIN ARABICA</span>
-      <span class="marquee-bullet"></span>
-      <span>NO CHALK NO HARSH SWEETENER</span>
-      <span class="marquee-bullet"></span>
-      <span>20G CLEAN PLANT PROTEIN</span>
-      <span class="marquee-bullet"></span>
-      <span>SUSTAINED BRAIN FUEL</span>
-      <span class="marquee-bullet"></span>
-      <span>ZERO ADDED SUGAR</span>
-      <span class="marquee-bullet"></span>
+      <span>{{ section.settings.item_1 | default: 'ZERO DAILY SLOW' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_2 | default: '100% SINGLE ORIGIN ARABICA' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_3 | default: 'NO CHALK NO HARSH SWEETENER' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_4 | default: '20G CLEAN PLANT PROTEIN' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_5 | default: 'SUSTAINED BRAIN FUEL' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
+      <span>{{ section.settings.item_6 | default: 'ZERO ADDED SUGAR' }}</span>
+      <span class="marquee-bullet" style="background: {{ section.settings.text_color | default: '#FAF6F0' }};"></span>
     </div>
   </div>
 </div>
@@ -35,7 +35,78 @@
 {% schema %}
 {
   "name": "Marquee Ticker",
-  "settings": [],
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#201610"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FAF6F0"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll Duration (Seconds)",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size (px)",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 13
+    },
+    {
+      "type": "header",
+      "content": "Ticker Highlights"
+    },
+    {
+      "type": "text",
+      "id": "item_1",
+      "label": "Highlight 1",
+      "default": "ZERO DAILY SLOW"
+    },
+    {
+      "type": "text",
+      "id": "item_2",
+      "label": "Highlight 2",
+      "default": "100% SINGLE ORIGIN ARABICA"
+    },
+    {
+      "type": "text",
+      "id": "item_3",
+      "label": "Highlight 3",
+      "default": "NO CHALK NO HARSH SWEETENER"
+    },
+    {
+      "type": "text",
+      "id": "item_4",
+      "label": "Highlight 4",
+      "default": "20G CLEAN PLANT PROTEIN"
+    },
+    {
+      "type": "text",
+      "id": "item_5",
+      "label": "Highlight 5",
+      "default": "SUSTAINED BRAIN FUEL"
+    },
+    {
+      "type": "text",
+      "id": "item_6",
+      "label": "Highlight 6",
+      "default": "ZERO ADDED SUGAR"
+    }
+  ],
   "presets": [
     {
       "name": "Marquee Ticker"

@@ -1,18 +1,18 @@
 <section class="cta-banner-section">
   <div class="container">
     <div class="cta-banner-box">
-      <span class="pill-badge pill-badge-gold">● UPGRADE YOUR MORNING RITUAL</span>
+      <span class="pill-badge pill-badge-gold">{{ section.settings.tag_label | default: '● UPGRADE YOUR MORNING RITUAL' }}</span>
       <h2>{{ section.settings.heading | default: 'Ready to feel clean energy from real coffee?' }}</h2>
       <p>{{ section.settings.subheading | default: 'Join over 1,400+ professionals and athletes starting their mornings with 20g clean plant protein, Colombian cold brew, and zero artificial sweeteners.' }}</p>
       
-      <a href="/products/vittal-protein-iced-coffee" class="btn btn-gold">
+      <a href="{{ section.settings.btn_url | default: '/products/vittal-protein-iced-coffee' }}" class="btn btn-gold">
         {{ section.settings.btn_label | default: 'Buy Vittal — Save 20%' }} &rarr;
       </a>
 
       <div class="cta-guarantees">
-        <span>🚚 Free Express Shipping Over $45</span>
-        <span>🛡️ 30-Day Money-Back Guarantee</span>
-        <span>⚡ Ships Within 24 Hours</span>
+        <span>{{ section.settings.guarantee_1 | default: '🚚 Free Express Shipping Over $45' }}</span>
+        <span>{{ section.settings.guarantee_2 | default: '🛡️ 30-Day Money-Back Guarantee' }}</span>
+        <span>{{ section.settings.guarantee_3 | default: '⚡ Ships Within 24 Hours' }}</span>
       </div>
     </div>
   </div>
@@ -22,6 +22,12 @@
 {
   "name": "CTA Banner",
   "settings": [
+    {
+      "type": "text",
+      "id": "tag_label",
+      "label": "Top Badge Label",
+      "default": "● UPGRADE YOUR MORNING RITUAL"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -39,6 +45,33 @@
       "id": "btn_label",
       "label": "Button Label",
       "default": "Buy Vittal — Save 20%"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Footer Guarantees"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_1",
+      "label": "Guarantee 1",
+      "default": "🚚 Free Express Shipping Over $45"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_2",
+      "label": "Guarantee 2",
+      "default": "🛡️ 30-Day Money-Back Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_3",
+      "label": "Guarantee 3",
+      "default": "⚡ Ships Within 24 Hours"
     }
   ],
   "presets": [

@@ -1,17 +1,20 @@
 <section class="product-recommendations-section" style="padding: 80px 0;">
   <div class="container">
     <div class="section-header" style="text-align: left; margin-bottom: 36px;">
-      <span class="text-uppercase-label">● CURATED COMBINATIONS</span>
-      <h2 style="font-size: 2.25rem; margin-top: 8px;">Complete Your Morning Ritual</h2>
+      <span class="text-uppercase-label">{{ section.settings.tag_label | default: '● CURATED COMBINATIONS' }}</span>
+      <h2 style="font-size: 2.25rem; margin-top: 8px;">{{ section.settings.heading | default: 'Complete Your Morning Ritual' }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p style="color: var(--color-text-muted); margin-top: 8px;">{{ section.settings.subheading }}</p>
+      {% endif %}
     </div>
 
     <div class="products-grid">
       {% render 'product-card',
-        title: "Vittal Mocha Protein Cold Brew",
-        price: 39.00,
+        title: section.settings.product_1_title | default: "Vittal Mocha Protein Cold Brew",
+        price: section.settings.product_1_price | default: 39.00,
         compare_price: 49.00,
-        badge: "NEW FLAVOR",
-        image: "vittal-pouch.svg",
+        badge: section.settings.product_1_badge | default: "NEW FLAVOR",
+        image: "vittal-mocha.jpg",
         category: "cold-brew",
         tag1: "Rich Dark Cocoa",
         tag2: "Hydration Electrolytes",
@@ -19,11 +22,11 @@
       %}
 
       {% render 'product-card',
-        title: "Vittal Barista Shaker Tumbler",
-        price: 24.00,
+        title: section.settings.product_2_title | default: "Vittal Barista Shaker Tumbler",
+        price: section.settings.product_2_price | default: 24.00,
         compare_price: 30.00,
-        badge: "GEAR & SHAKER",
-        image: "vittal-shaker.svg",
+        badge: section.settings.product_2_badge | default: "GEAR & SHAKER",
+        image: "vittal-shaker.jpg",
         category: "gear",
         tag1: "Double-Wall Insulated",
         tag2: "Leak-Proof Seal",
@@ -31,11 +34,11 @@
       %}
 
       {% render 'product-card',
-        title: "Vittal Master Trio Bundle",
-        price: 89.00,
+        title: section.settings.product_3_title | default: "Vittal Master Trio Bundle",
+        price: section.settings.product_3_price | default: 89.00,
         compare_price: 117.00,
-        badge: "BEST VALUE • 3-PACK",
-        image: "vittal-bundle.svg",
+        badge: section.settings.product_3_badge | default: "BEST VALUE • 3-PACK",
+        image: "vittal-bundle.jpg",
         category: "bundles",
         tag1: "All 3 Core Flavors",
         tag2: "$1.48 Per Serving",
@@ -48,6 +51,95 @@
 {% schema %}
 {
   "name": "Product Recommendations",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "tag_label",
+      "label": "Top Badge Label",
+      "default": "● CURATED COMBINATIONS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Complete Your Morning Ritual"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Section Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Recommended Product 1"
+    },
+    {
+      "type": "text",
+      "id": "product_1_title",
+      "label": "Product 1 Title",
+      "default": "Vittal Mocha Protein Cold Brew"
+    },
+    {
+      "type": "text",
+      "id": "product_1_price",
+      "label": "Product 1 Price ($)",
+      "default": "39.00"
+    },
+    {
+      "type": "text",
+      "id": "product_1_badge",
+      "label": "Product 1 Badge",
+      "default": "NEW FLAVOR"
+    },
+    {
+      "type": "header",
+      "content": "Recommended Product 2"
+    },
+    {
+      "type": "text",
+      "id": "product_2_title",
+      "label": "Product 2 Title",
+      "default": "Vittal Barista Shaker Tumbler"
+    },
+    {
+      "type": "text",
+      "id": "product_2_price",
+      "label": "Product 2 Price ($)",
+      "default": "24.00"
+    },
+    {
+      "type": "text",
+      "id": "product_2_badge",
+      "label": "Product 2 Badge",
+      "default": "GEAR & SHAKER"
+    },
+    {
+      "type": "header",
+      "content": "Recommended Product 3"
+    },
+    {
+      "type": "text",
+      "id": "product_3_title",
+      "label": "Product 3 Title",
+      "default": "Vittal Master Trio Bundle"
+    },
+    {
+      "type": "text",
+      "id": "product_3_price",
+      "label": "Product 3 Price ($)",
+      "default": "89.00"
+    },
+    {
+      "type": "text",
+      "id": "product_3_badge",
+      "label": "Product 3 Badge",
+      "default": "BEST VALUE • 3-PACK"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Recommendations"
+    }
+  ]
 }
 {% endschema %}

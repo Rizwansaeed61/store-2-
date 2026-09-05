@@ -1,7 +1,7 @@
 <section class="comparison-section" id="compare">
   <div class="container">
     <div class="section-header">
-      <span class="text-uppercase-label">● NUTRITIONAL SUPERIORITY</span>
+      <span class="text-uppercase-label">{{ section.settings.tag_label | default: '● NUTRITIONAL SUPERIORITY' }}</span>
       <h2>{{ section.settings.title | default: 'Why Vittal beats your daily coffee routine.' }}</h2>
       <p>{{ section.settings.subtitle | default: 'See how we compare against standard coffee house drinks and chalky protein shakes.' }}</p>
     </div>
@@ -13,13 +13,13 @@
             <th style="width: 25%;">Nutritional Metric</th>
             <th class="col-highlight" style="width: 30%; text-align: center;">
               <span class="pill-badge pill-badge-dark" style="margin-bottom: 6px;">OUR RITUAL</span>
-              <div style="font-size: 1.15rem; font-weight: 800;">Vittal Cold Brew</div>
+              <div style="font-size: 1.15rem; font-weight: 800;">{{ section.settings.col_1_header | default: 'Vittal Cold Brew' }}</div>
             </th>
             <th style="width: 22%; text-align: center;">
-              <div style="font-size: 1.05rem; font-weight: 700; color: #73675E;">Traditional Frappe</div>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #73675E;">{{ section.settings.col_2_header | default: 'Traditional Frappe' }}</div>
             </th>
             <th style="width: 23%; text-align: center;">
-              <div style="font-size: 1.05rem; font-weight: 700; color: #73675E;">Typical RTD Shake</div>
+              <div style="font-size: 1.05rem; font-weight: 700; color: #73675E;">{{ section.settings.col_3_header | default: 'Typical RTD Shake' }}</div>
             </th>
           </tr>
         </thead>
@@ -99,13 +99,13 @@
               <div style="font-size: 0.75rem; color: var(--color-text-muted);">Daily budget economy</div>
             </td>
             <td class="col-highlight" style="text-align: center;">
-              <span style="font-size: 1.15rem; font-weight: 800; color: var(--color-espresso-dark);">$1.95</span>
+              <span style="font-size: 1.15rem; font-weight: 800; color: var(--color-espresso-dark);">{{ section.settings.vittal_cost | default: '$1.95' }}</span>
             </td>
             <td style="text-align: center; color: var(--color-text-muted);">
-              $6.50+
+              {{ section.settings.frappe_cost | default: '$6.50+' }}
             </td>
             <td style="text-align: center; color: var(--color-text-muted);">
-              $4.25
+              {{ section.settings.shake_cost | default: '$4.25' }}
             </td>
           </tr>
         </tbody>
@@ -120,6 +120,12 @@
   "settings": [
     {
       "type": "text",
+      "id": "tag_label",
+      "label": "Top Badge Label",
+      "default": "● NUTRITIONAL SUPERIORITY"
+    },
+    {
+      "type": "text",
       "id": "title",
       "label": "Section Title",
       "default": "Why Vittal beats your daily coffee routine."
@@ -129,6 +135,50 @@
       "id": "subtitle",
       "label": "Section Subtitle",
       "default": "See how we compare against standard coffee house drinks and chalky protein shakes."
+    },
+    {
+      "type": "header",
+      "content": "Column Headers"
+    },
+    {
+      "type": "text",
+      "id": "col_1_header",
+      "label": "Highlight Column Title",
+      "default": "Vittal Cold Brew"
+    },
+    {
+      "type": "text",
+      "id": "col_2_header",
+      "label": "Competitor 1 Title",
+      "default": "Traditional Frappe"
+    },
+    {
+      "type": "text",
+      "id": "col_3_header",
+      "label": "Competitor 2 Title",
+      "default": "Typical RTD Shake"
+    },
+    {
+      "type": "header",
+      "content": "Cost Per Serving Comparison"
+    },
+    {
+      "type": "text",
+      "id": "vittal_cost",
+      "label": "Vittal Cost Per Serving",
+      "default": "$1.95"
+    },
+    {
+      "type": "text",
+      "id": "frappe_cost",
+      "label": "Coffee House Cost",
+      "default": "$6.50+"
+    },
+    {
+      "type": "text",
+      "id": "shake_cost",
+      "label": "Protein Shake Cost",
+      "default": "$4.25"
     }
   ],
   "presets": [

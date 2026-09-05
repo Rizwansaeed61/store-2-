@@ -4,12 +4,21 @@
       <!-- Left: Product Gallery with Real Photography -->
       <div class="product-gallery-column">
         <div class="product-gallery-main" style="padding: 0; overflow: hidden; background: #FAF6F0;">
-          <img 
-            id="main-gallery-image" 
-            src="{{ 'vittal-pouch.jpg' | asset_url }}" 
-            alt="Vittal Protein Iced Coffee" 
-            style="width: 100%; height: 440px; object-fit: cover; display: block;"
-          />
+          {% if section.settings.image != blank %}
+            <img 
+              id="main-gallery-image" 
+              src="{{ section.settings.image | image_url: width: 800 }}" 
+              alt="{{ section.settings.title | escape }}" 
+              style="width: 100%; height: 440px; object-fit: cover; display: block;"
+            />
+          {% else %}
+            <img 
+              id="main-gallery-image" 
+              src="{{ 'vittal-pouch.jpg' | asset_url }}" 
+              alt="Vittal Protein Iced Coffee" 
+              style="width: 100%; height: 440px; object-fit: cover; display: block;"
+            />
+          {% endif %}
         </div>
         
         <div class="product-gallery-thumbs" style="margin-top: 16px;">
@@ -30,18 +39,20 @@
 
       <!-- Right: Product Information & Buy Form -->
       <div class="product-info-column">
-        <div class="product-rating-line" style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <span class="pill-badge pill-badge-gold" style="font-size: 0.65rem;">BESTSELLER</span>
-          {% render 'rating-stars', rating: 4.9, count: 1420 %}
-        </div>
+        {% if section.settings.show_rating %}
+          <div class="product-rating-line" style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <span class="pill-badge pill-badge-gold" style="font-size: 0.65rem;">{{ section.settings.badge_text | default: 'BESTSELLER' }}</span>
+            {% render 'rating-stars', rating: 4.9, count: 1420 %}
+          </div>
+        {% endif %}
 
         <h2 class="product-title">
-          Vittal Protein Iced Coffee
-          <span class="product-servings-badge">20 Servings</span>
+          {{ section.settings.title | default: 'Vittal Protein Iced Coffee' }}
+          <span class="product-servings-badge">{{ section.settings.servings_text | default: '20 Servings' }}</span>
         </h2>
 
         <p class="product-desc">
-          Full 20-serving pouch. Mixes instantly in cold water or plant milk. Ultra-pure Colombian Supremo cold brew infused with 20g silky plant protein isolate with zero chalk and less than 1.5g net carbs.
+          {{ section.settings.description | default: 'Full 20-serving pouch. Mixes instantly in cold water or plant milk. Ultra-pure Colombian Supremo cold brew infused with 20g silky plant protein isolate with zero chalk and less than 1.5g net carbs.' }}
         </p>
 
         <!-- Spec Pills Grid with Crisp Icons -->
@@ -49,37 +60,36 @@
           <div class="spec-pill">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold-dark)" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
             <div>
-              <div style="font-weight: 700;">Local Colombian Roast</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">1,800m Altitude Supremo</div>
+              <div style="font-weight: 700;">{{ section.settings.spec_1_title | default: 'Local Colombian Roast' }}</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">{{ section.settings.spec_1_desc | default: '1,800m Altitude Supremo' }}</div>
             </div>
           </div>
           <div class="spec-pill">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             <div>
-              <div style="font-weight: 700;">Clean Plant Sourced</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Yellow Pea & Brown Rice</div>
+              <div style="font-weight: 700;">{{ section.settings.spec_2_title | default: 'Clean Plant Sourced' }}</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">{{ section.settings.spec_2_desc | default: 'Yellow Pea & Brown Rice' }}</div>
             </div>
           </div>
           <div class="spec-pill">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C59964" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             <div>
-              <div style="font-weight: 700;">Fast Express Delivery</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Ships within 24 Hours</div>
+              <div style="font-weight: 700;">{{ section.settings.spec_3_title | default: 'Fast Express Delivery' }}</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">{{ section.settings.spec_3_desc | default: 'Ships within 24 Hours' }}</div>
             </div>
           </div>
           <div class="spec-pill">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3c5f78" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             <div>
-              <div style="font-weight: 700;">3rd-Party Lab Certified</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Zero Heavy Metals</div>
+              <div style="font-weight: 700;">{{ section.settings.spec_4_title | default: '3rd-Party Lab Certified' }}</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">{{ section.settings.spec_4_desc | default: 'Zero Heavy Metals' }}</div>
             </div>
           </div>
         </div>
 
         <!-- Subscription vs One-Time Radio Selector -->
         <div class="purchase-options">
-          <!-- Option 1: Subscribe & Save 20% -->
-          <div class="purchase-option-card active" data-price="39.00" data-variant="Subscribe & Save 20%">
+          <div class="purchase-option-card active" data-price="{{ section.settings.price_subscription | default: '39.00' }}" data-variant="Subscribe & Save 20%">
             <div class="option-header">
               <label class="option-radio-label">
                 <input type="radio" name="purchase-type" checked style="accent-color: var(--color-espresso-dark);" />
@@ -87,8 +97,8 @@
                 <span class="pill-badge pill-badge-dark" style="font-size: 0.65rem; padding: 2px 8px;">POPULAR</span>
               </label>
               <div class="option-price-box">
-                <span class="option-price-original">$49.00</span>
-                <span class="option-price-main">$39.00</span>
+                <span class="option-price-original">${{ section.settings.price_one_time | default: '49.00' }}</span>
+                <span class="option-price-main">${{ section.settings.price_subscription | default: '39.00' }}</span>
                 <span style="font-size: 0.75rem; color: var(--color-text-muted);">/ pouch</span>
               </div>
             </div>
@@ -97,15 +107,14 @@
             </div>
           </div>
 
-          <!-- Option 2: One-Time Purchase -->
-          <div class="purchase-option-card" data-price="49.00" data-variant="One-Time Purchase">
+          <div class="purchase-option-card" data-price="{{ section.settings.price_one_time | default: '49.00' }}" data-variant="One-Time Purchase">
             <div class="option-header">
               <label class="option-radio-label">
                 <input type="radio" name="purchase-type" style="accent-color: var(--color-espresso-dark);" />
                 <span>One-Time Delivery</span>
               </label>
               <div class="option-price-box">
-                <span class="option-price-main">$49.00</span>
+                <span class="option-price-main">${{ section.settings.price_one_time | default: '49.00' }}</span>
               </div>
             </div>
             <div class="option-details">
@@ -132,30 +141,32 @@
             id="main-atc-button"
             class="btn btn-primary add-to-cart-btn" 
             data-action="add-to-cart"
-            data-product-title="Vittal Protein Iced Coffee"
-            data-product-price="39.00"
+            data-product-title="{{ section.settings.title | default: 'Vittal Protein Iced Coffee' }}"
+            data-product-price="{{ section.settings.price_subscription | default: '39.00' }}"
             data-product-variant="Subscribe & Save 20%"
             data-product-image="{{ 'vittal-pouch.jpg' | asset_url }}"
           >
-            <span>ADD TO CART &mdash; <span class="atc-dynamic-price">$39.00</span></span>
+            <span>ADD TO CART &mdash; <span class="atc-dynamic-price">${{ section.settings.price_subscription | default: '39.00' }}</span></span>
           </button>
         </div>
 
         <!-- Micro Guarantees with SVG Icons -->
-        <div class="micro-guarantees-row">
-          <span style="display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            30-Day Money-Back Guarantee
-          </span>
-          <span style="display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
-            Free Express Delivery
-          </span>
-          <span style="display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            256-Bit SSL Checkout
-          </span>
-        </div>
+        {% if section.settings.show_guarantees %}
+          <div class="micro-guarantees-row">
+            <span style="display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              {{ section.settings.guarantee_1 | default: '30-Day Money-Back Guarantee' }}
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
+              {{ section.settings.guarantee_2 | default: 'Free Express Delivery' }}
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              {{ section.settings.guarantee_3 | default: '256-Bit SSL Checkout' }}
+            </span>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -164,7 +175,135 @@
 {% schema %}
 {
   "name": "Featured Product Buy Box",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Product Title",
+      "default": "Vittal Protein Iced Coffee"
+    },
+    {
+      "type": "text",
+      "id": "servings_text",
+      "label": "Servings Tag",
+      "default": "20 Servings"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "BESTSELLER"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Product Description",
+      "default": "Full 20-serving pouch. Mixes instantly in cold water or plant milk. Ultra-pure Colombian Supremo cold brew infused with 20g silky plant protein isolate with zero chalk and less than 1.5g net carbs."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product Image"
+    },
+    {
+      "type": "text",
+      "id": "price_subscription",
+      "label": "Subscription Price",
+      "default": "39.00"
+    },
+    {
+      "type": "text",
+      "id": "price_one_time",
+      "label": "One-Time Price",
+      "default": "49.00"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show Rating & Badge",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guarantees",
+      "label": "Show Guarantees Row",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Product Specifications"
+    },
+    {
+      "type": "text",
+      "id": "spec_1_title",
+      "label": "Spec 1 Title",
+      "default": "Local Colombian Roast"
+    },
+    {
+      "type": "text",
+      "id": "spec_1_desc",
+      "label": "Spec 1 Description",
+      "default": "1,800m Altitude Supremo"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_title",
+      "label": "Spec 2 Title",
+      "default": "Clean Plant Sourced"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_desc",
+      "label": "Spec 2 Description",
+      "default": "Yellow Pea & Brown Rice"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_title",
+      "label": "Spec 3 Title",
+      "default": "Fast Express Delivery"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_desc",
+      "label": "Spec 3 Description",
+      "default": "Ships within 24 Hours"
+    },
+    {
+      "type": "text",
+      "id": "spec_4_title",
+      "label": "Spec 4 Title",
+      "default": "3rd-Party Lab Certified"
+    },
+    {
+      "type": "text",
+      "id": "spec_4_desc",
+      "label": "Spec 4 Description",
+      "default": "Zero Heavy Metals"
+    },
+    {
+      "type": "header",
+      "content": "Footer Guarantees"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_1",
+      "label": "Guarantee 1",
+      "default": "30-Day Money-Back Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_2",
+      "label": "Guarantee 2",
+      "default": "Free Express Delivery"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_3",
+      "label": "Guarantee 3",
+      "default": "256-Bit SSL Checkout"
+    }
+  ],
   "presets": [
     {
       "name": "Featured Product Buy Box"

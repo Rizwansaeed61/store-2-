@@ -3,7 +3,7 @@
     <div class="section-header">
       <span class="text-uppercase-label" style="display: inline-flex; align-items: center; gap: 6px;">
         <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent-gold);"></span>
-        THE VITTAL STANDARD
+        {{ section.settings.tag_label | default: 'THE VITTAL STANDARD' }}
       </span>
       <h2>{{ section.settings.title | default: 'A functional morning brew meticulously engineered.' }}</h2>
       <p>{{ section.settings.subtitle | default: 'Clean, ready-to-mix ritual supercharged with a restorative blend of 20g clean plant protein for an elevated energy boost that sustains without the chalky stomach distress.' }}</p>
@@ -18,9 +18,9 @@
             <polyline points="12 6 12 12 16 14"></polyline>
           </svg>
         </div>
-        <h3>18-Hour Slow Brew</h3>
-        <p>Cold-dripped Colombian Supremo beans to eliminate crisp acidity, leaving a smooth, velvety profile of cocoa and toasted almond notes.</p>
-        <span class="feature-tag">SILK SMOOTH &bull; LOW ACIDITY</span>
+        <h3>{{ section.settings.card_1_title | default: '18-Hour Slow Brew' }}</h3>
+        <p>{{ section.settings.card_1_desc | default: 'Cold-dripped Colombian Supremo beans to eliminate crisp acidity, leaving a smooth, velvety profile of cocoa and toasted almond notes.' }}</p>
+        <span class="feature-tag">{{ section.settings.card_1_tag | default: 'SILK SMOOTH • LOW ACIDITY' }}</span>
       </div>
 
       <!-- Card 2 -->
@@ -32,9 +32,9 @@
             <path d="M2 12l10 5 10-5"></path>
           </svg>
         </div>
-        <h3>20g Pure Plant Isolate</h3>
-        <p>Organic cold-pressed yellow pea and sprouted brown rice isolate delivers all 9 essential amino acids without gut bloating or chalkiness.</p>
-        <span class="feature-tag">FAST DIGESTION &bull; ZERO BLOAT</span>
+        <h3>{{ section.settings.card_2_title | default: '20g Pure Plant Isolate' }}</h3>
+        <p>{{ section.settings.card_2_desc | default: 'Organic cold-pressed yellow pea and sprouted brown rice isolate delivers all 9 essential amino acids without gut bloating or chalkiness.' }}</p>
+        <span class="feature-tag">{{ section.settings.card_2_tag | default: 'FAST DIGESTION • ZERO BLOAT' }}</span>
       </div>
 
       <!-- Card 3 -->
@@ -44,9 +44,9 @@
             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
           </svg>
         </div>
-        <h3>Sustained Brain Fuel</h3>
-        <p>Natural caffeine gently buffered by restorative micronutrients so your focus stays locked in for 6+ hours with zero jitters or afternoon crashes.</p>
-        <span class="feature-tag">COGNITIVE CLARITY &bull; 6+ HOURS</span>
+        <h3>{{ section.settings.card_3_title | default: 'Sustained Brain Fuel' }}</h3>
+        <p>{{ section.settings.card_3_desc | default: 'Natural caffeine gently buffered by restorative micronutrients so your focus stays locked in for 6+ hours with zero jitters or afternoon crashes.' }}</p>
+        <span class="feature-tag">{{ section.settings.card_3_tag | default: 'COGNITIVE CLARITY • 6+ HOURS' }}</span>
       </div>
 
       <!-- Card 4 -->
@@ -56,9 +56,9 @@
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
         </div>
-        <h3>Sweetened by Plants</h3>
-        <p>Zero erythritol, zero sucralose, zero chemical bitterness. Naturally rounded with pure monk fruit extract for a silky clean finish.</p>
-        <span class="feature-tag">ZERO ADDED SUGARS &bull; KETO READY</span>
+        <h3>{{ section.settings.card_4_title | default: 'Sweetened by Plants' }}</h3>
+        <p>{{ section.settings.card_4_desc | default: 'Zero erythritol, zero sucralose, zero chemical bitterness. Naturally rounded with pure monk fruit extract for a silky clean finish.' }}</p>
+        <span class="feature-tag">{{ section.settings.card_4_tag | default: 'ZERO ADDED SUGARS • KETO READY' }}</span>
       </div>
     </div>
   </div>
@@ -70,6 +70,12 @@
   "settings": [
     {
       "type": "text",
+      "id": "tag_label",
+      "label": "Top Label",
+      "default": "THE VITTAL STANDARD"
+    },
+    {
+      "type": "text",
       "id": "title",
       "label": "Section Title",
       "default": "A functional morning brew meticulously engineered."
@@ -79,6 +85,94 @@
       "id": "subtitle",
       "label": "Section Subtitle",
       "default": "Clean, ready-to-mix ritual supercharged with a restorative blend of 20g clean plant protein for an elevated energy boost that sustains without the chalky stomach distress."
+    },
+    {
+      "type": "header",
+      "content": "Feature Card 1"
+    },
+    {
+      "type": "text",
+      "id": "card_1_title",
+      "label": "Card 1 Title",
+      "default": "18-Hour Slow Brew"
+    },
+    {
+      "type": "textarea",
+      "id": "card_1_desc",
+      "label": "Card 1 Description",
+      "default": "Cold-dripped Colombian Supremo beans to eliminate crisp acidity, leaving a smooth, velvety profile of cocoa and toasted almond notes."
+    },
+    {
+      "type": "text",
+      "id": "card_1_tag",
+      "label": "Card 1 Tag",
+      "default": "SILK SMOOTH • LOW ACIDITY"
+    },
+    {
+      "type": "header",
+      "content": "Feature Card 2"
+    },
+    {
+      "type": "text",
+      "id": "card_2_title",
+      "label": "Card 2 Title",
+      "default": "20g Pure Plant Isolate"
+    },
+    {
+      "type": "textarea",
+      "id": "card_2_desc",
+      "label": "Card 2 Description",
+      "default": "Organic cold-pressed yellow pea and sprouted brown rice isolate delivers all 9 essential amino acids without gut bloating or chalkiness."
+    },
+    {
+      "type": "text",
+      "id": "card_2_tag",
+      "label": "Card 2 Tag",
+      "default": "FAST DIGESTION • ZERO BLOAT"
+    },
+    {
+      "type": "header",
+      "content": "Feature Card 3"
+    },
+    {
+      "type": "text",
+      "id": "card_3_title",
+      "label": "Card 3 Title",
+      "default": "Sustained Brain Fuel"
+    },
+    {
+      "type": "textarea",
+      "id": "card_3_desc",
+      "label": "Card 3 Description",
+      "default": "Natural caffeine gently buffered by restorative micronutrients so your focus stays locked in for 6+ hours with zero jitters or afternoon crashes."
+    },
+    {
+      "type": "text",
+      "id": "card_3_tag",
+      "label": "Card 3 Tag",
+      "default": "COGNITIVE CLARITY • 6+ HOURS"
+    },
+    {
+      "type": "header",
+      "content": "Feature Card 4"
+    },
+    {
+      "type": "text",
+      "id": "card_4_title",
+      "label": "Card 4 Title",
+      "default": "Sweetened by Plants"
+    },
+    {
+      "type": "textarea",
+      "id": "card_4_desc",
+      "label": "Card 4 Description",
+      "default": "Zero erythritol, zero sucralose, zero chemical bitterness. Naturally rounded with pure monk fruit extract for a silky clean finish."
+    },
+    {
+      "type": "text",
+      "id": "card_4_tag",
+      "label": "Card 4 Tag",
+      "default": "ZERO ADDED SUGARS • KETO READY"
     }
   ],
   "presets": [

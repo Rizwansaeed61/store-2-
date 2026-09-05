@@ -3,14 +3,14 @@
 <div id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
   <!-- Drawer Header -->
   <div class="drawer-header">
-    <h3>Your Morning Ritual (1)</h3>
+    <h3>{{ section.settings.drawer_title | default: 'Your Morning Ritual' }}</h3>
     <button class="drawer-close-btn" data-action="close-cart" aria-label="Close cart">
       {% render 'icon-close' %}
     </button>
   </div>
 
   <!-- Free Shipping Progress Meter -->
-  <div class="shipping-meter-wrap">
+  <div class="shipping-meter-wrap" data-threshold="{{ section.settings.free_shipping_threshold | default: 45 }}">
     <div id="shipping-status-msg">
       Add <strong>$6.00</strong> more to unlock <strong>Free Express Shipping</strong>!
     </div>
@@ -32,15 +32,15 @@
     </div>
     
     <p style="font-size: 0.775rem; color: var(--color-text-muted); margin-bottom: 16px;">
-      Shipping and taxes calculated at checkout. Subscriptions can be canceled anytime.
+      {{ section.settings.disclaimer_text | default: 'Shipping and taxes calculated at checkout. Subscriptions can be canceled anytime.' }}
     </p>
 
     <a href="/checkout" class="btn btn-primary btn-full" style="height: 52px; font-size: 1rem; letter-spacing: 0.02em;">
-      PROCEED TO CHECKOUT &rarr;
+      {{ section.settings.checkout_btn_text | default: 'PROCEED TO CHECKOUT &rarr;' }}
     </a>
 
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; font-size: 0.75rem; color: var(--color-text-subtle);">
-      <span>🔒 256-Bit Encrypted Secure Checkout</span>
+      <span>{{ section.settings.security_text | default: '🔒 256-Bit Encrypted Secure Checkout' }}</span>
     </div>
   </div>
 </div>
@@ -48,6 +48,37 @@
 {% schema %}
 {
   "name": "Cart Drawer",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "drawer_title",
+      "label": "Drawer Title",
+      "default": "Your Morning Ritual"
+    },
+    {
+      "type": "number",
+      "id": "free_shipping_threshold",
+      "label": "Free Shipping Threshold ($)",
+      "default": 45
+    },
+    {
+      "type": "text",
+      "id": "checkout_btn_text",
+      "label": "Checkout Button Label",
+      "default": "PROCEED TO CHECKOUT →"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer_text",
+      "label": "Cart Disclaimer Text",
+      "default": "Shipping and taxes calculated at checkout. Subscriptions can be canceled anytime."
+    },
+    {
+      "type": "text",
+      "id": "security_text",
+      "label": "Security Badge Text",
+      "default": "🔒 256-Bit Encrypted Secure Checkout"
+    }
+  ]
 }
 {% endschema %}

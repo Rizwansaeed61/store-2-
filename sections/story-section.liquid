@@ -3,53 +3,60 @@
     <div class="story-grid">
       <!-- Media Side with Real Farmer Photograph -->
       <div class="story-media" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-        <img 
-          src="{{ 'vittal-farmer.jpg' | asset_url }}" 
-          alt="Colombian Coffee Harvest in Huila" 
-          style="width: 100%; height: 500px; object-fit: cover; display: block;"
-        />
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 1200 | image_tag: class: 'story-image', style: 'width: 100%; height: 500px; object-fit: cover; display: block;' }}
+        {% else %}
+          <img 
+            src="{{ 'vittal-farmer.jpg' | asset_url }}" 
+            alt="{{ section.settings.heading | escape }}" 
+            style="width: 100%; height: 500px; object-fit: cover; display: block;"
+          />
+        {% endif %}
+
         <!-- Overlaid Badge -->
-        <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(20, 14, 10, 0.88); backdrop-filter: blur(8px); padding: 14px 20px; border-radius: var(--radius-md); border: 1px solid rgba(197, 153, 100, 0.4);">
-          <div style="font-size: 0.7rem; font-weight: 800; color: var(--color-accent-gold); letter-spacing: 0.1em; text-transform: uppercase;">
-            SINGLE ORIGIN COLOMBIAN
+        {% if section.settings.show_badge %}
+          <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(20, 14, 10, 0.88); backdrop-filter: blur(8px); padding: 14px 20px; border-radius: var(--radius-md); border: 1px solid rgba(197, 153, 100, 0.4);">
+            <div style="font-size: 0.7rem; font-weight: 800; color: var(--color-accent-gold); letter-spacing: 0.1em; text-transform: uppercase;">
+              {{ section.settings.badge_label | default: 'SINGLE ORIGIN COLOMBIAN' }}
+            </div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: #FFFFFF; margin-top: 2px;">
+              {{ section.settings.badge_text | default: '1,800m Altitude, Slow-Matured Beans • Huila Region' }}
+            </div>
           </div>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #FFFFFF; margin-top: 2px;">
-            1,800m Altitude, Slow-Matured Beans &bull; Huila Region
-          </div>
-        </div>
+        {% endif %}
       </div>
 
       <!-- Story Content -->
       <div class="story-content">
         <span class="text-uppercase-label" style="display: inline-flex; align-items: center; gap: 6px;">
           <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent-gold);"></span>
-          HARVEST INTEGRITY
+          {{ section.settings.tag_label | default: 'HARVEST INTEGRITY' }}
         </span>
-        <h2>Born in Colombia.<br>Perfected for your high-output routine.</h2>
+        <h2>{{ section.settings.heading | default: 'Born in Colombia.<br>Perfected for your high-output routine.' }}</h2>
         
         <p>
-          We grew tired of choosing between our delicious morning cold brew ritual and our daily protein intake. One delivered pure morning joy loaded with 46g refined sugar; the other delivered chalky chemical grit that left us sluggish before lunch.
+          {{ section.settings.text_1 | default: 'We grew tired of choosing between our delicious morning cold brew ritual and our daily protein intake. One delivered pure morning joy loaded with 46g refined sugar; the other delivered chalky chemical grit that left us sluggish before lunch.' }}
         </p>
         
         <p>
-          In the high-altitude cloud forests of Huila and Pereira, Colombia, we partner directly with master coffee growers. Harvesting at 1,800m allows beans to mature 20% slower, cultivating richer cocoa notes and natural sweetness without bitter acidity.
+          {{ section.settings.text_2 | default: 'In the high-altitude cloud forests of Huila and Pereira, Colombia, we partner directly with master coffee growers. Harvesting at 1,800m allows beans to mature 20% slower, cultivating richer cocoa notes and natural sweetness without bitter acidity.' }}
         </p>
 
         <!-- Stats Grid with Icons -->
         <div class="story-stats-grid">
           <div class="story-stat-box">
             <div style="display: flex; align-items: center; justify-content: space-between;">
-              <span class="story-stat-number">100%</span>
+              <span class="story-stat-number">{{ section.settings.stat_1_number | default: '100%' }}</span>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <div class="story-stat-desc">Direct Fair-Trade Single Origin Beans</div>
+            <div class="story-stat-desc">{{ section.settings.stat_1_text | default: 'Direct Fair-Trade Single Origin Beans' }}</div>
           </div>
           <div class="story-stat-box">
             <div style="display: flex; align-items: center; justify-content: space-between;">
-              <span class="story-stat-number">18-Hour</span>
+              <span class="story-stat-number">{{ section.settings.stat_2_number | default: '18-Hour' }}</span>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
-            <div class="story-stat-desc">True Sub-Zero Cold Extraction Process</div>
+            <div class="story-stat-desc">{{ section.settings.stat_2_text | default: 'True Sub-Zero Cold Extraction Process' }}</div>
           </div>
         </div>
       </div>
@@ -60,7 +67,87 @@
 {% schema %}
 {
   "name": "Story & Sourcing",
-  "settings": [],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Story Photography"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show Photo Overlay Badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Photo Badge Subtitle",
+      "default": "SINGLE ORIGIN COLOMBIAN"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Photo Badge Main Text",
+      "default": "1,800m Altitude, Slow-Matured Beans • Huila Region"
+    },
+    {
+      "type": "header",
+      "content": "Story Narrative"
+    },
+    {
+      "type": "text",
+      "id": "tag_label",
+      "label": "Top Label",
+      "default": "HARVEST INTEGRITY"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Headline",
+      "default": "Born in Colombia.<br>Perfected for your high-output routine."
+    },
+    {
+      "type": "textarea",
+      "id": "text_1",
+      "label": "Paragraph 1",
+      "default": "We grew tired of choosing between our delicious morning cold brew ritual and our daily protein intake. One delivered pure morning joy loaded with 46g refined sugar; the other delivered chalky chemical grit that left us sluggish before lunch."
+    },
+    {
+      "type": "textarea",
+      "id": "text_2",
+      "label": "Paragraph 2",
+      "default": "In the high-altitude cloud forests of Huila and Pereira, Colombia, we partner directly with master coffee growers. Harvesting at 1,800m allows beans to mature 20% slower, cultivating richer cocoa notes and natural sweetness without bitter acidity."
+    },
+    {
+      "type": "header",
+      "content": "Story Statistics"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Stat 1 Number / Highlight",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_text",
+      "label": "Stat 1 Description",
+      "default": "Direct Fair-Trade Single Origin Beans"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Stat 2 Number / Highlight",
+      "default": "18-Hour"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_text",
+      "label": "Stat 2 Description",
+      "default": "True Sub-Zero Cold Extraction Process"
+    }
+  ],
   "presets": [
     {
       "name": "Story & Sourcing"

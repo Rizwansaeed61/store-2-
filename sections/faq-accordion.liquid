@@ -1,71 +1,84 @@
 <section class="faq-section" id="faq">
   <div class="container">
     <div class="section-header">
-      <span class="text-uppercase-label">● FREQUENTLY ASKED QUESTIONS</span>
+      <span class="text-uppercase-label">{{ section.settings.tag_label | default: '● FREQUENTLY ASKED QUESTIONS' }}</span>
       <h2>{{ section.settings.title | default: 'Everything you need to know.' }}</h2>
-      <p>Everything you need to know about our slow cold-brew extraction, clean plant protein blend, and gut-toleration facts.</p>
+      <p>{{ section.settings.subtitle | default: 'Everything you need to know about our slow cold-brew extraction, clean plant protein blend, and gut-toleration facts.' }}</p>
     </div>
 
     <div class="accordion-list">
-      <!-- Item 1 -->
-      <div class="accordion-item active">
-        <button class="accordion-trigger" aria-expanded="true">
-          <span>How do I prepare Vittal Protein Iced Coffee?</span>
-          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="accordion-content">
-          <p>
-            Simply add 1 scoop (included) into 8-10 oz of cold water, oat milk, or almond milk. Add 3-4 ice cubes, give it a quick 10-second shake in a shaker tumbler, and enjoy a velvety, rich cold brew ritual.
-          </p>
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <div class="accordion-item {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }}>
+            <button class="accordion-trigger" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+              <span>{{ block.settings.question }}</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <p>{{ block.settings.answer }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <!-- Default Fallback FAQs -->
+        <div class="accordion-item active">
+          <button class="accordion-trigger" aria-expanded="true">
+            <span>How do I prepare Vittal Protein Iced Coffee?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Simply add 1 scoop (included) into 8-10 oz of cold water, oat milk, or almond milk. Add 3-4 ice cubes, give it a quick 10-second shake in a shaker tumbler, and enjoy a velvety, rich cold brew ritual.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Item 2 -->
-      <div class="accordion-item">
-        <button class="accordion-trigger" aria-expanded="false">
-          <span>Is it really free of artificial sweeteners?</span>
-          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="accordion-content">
-          <p>
-            Yes! 100% free of sucralose, acesulfame potassium, aspartame, and erythritol. Vittal is naturally rounded using organic monk fruit extract for a silky taste without chemical aftertaste or gut bloat.
-          </p>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Is it really free of artificial sweeteners?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Yes! 100% free of sucralose, acesulfame potassium, aspartame, and erythritol. Vittal is naturally rounded using organic monk fruit extract for a silky taste without chemical aftertaste or gut bloat.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Item 3 -->
-      <div class="accordion-item">
-        <button class="accordion-trigger" aria-expanded="false">
-          <span>How does the 30-day money-back guarantee work?</span>
-          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="accordion-content">
-          <p>
-            If you do not experience the clean energy lift and smooth flavor on your first order, simply reach out to support@vittal.com within 30 days. We will refund 100% of your first bag—keep the bag on us.
-          </p>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>How does the 30-day money-back guarantee work?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <p>
+              If you do not experience the clean energy lift and smooth flavor on your first order, simply reach out to support@vittal.com within 30 days. We will refund 100% of your first bag—keep the bag on us.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Item 4 -->
-      <div class="accordion-item">
-        <button class="accordion-trigger" aria-expanded="false">
-          <span>Can I pause or cancel my subscription anytime?</span>
-          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="accordion-content">
-          <p>
-            Yes, you have full control. You can skip an upcoming delivery, change frequency (every 2, 3, or 4 weeks), swap flavors, or cancel in your account with a single click. No phone calls required.
-          </p>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false">
+            <span>Can I pause or cancel my subscription anytime?</span>
+            <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <p>
+              Yes, you have full control. You can skip an upcoming delivery, change frequency (every 2, 3, or 4 weeks), swap flavors, or cancel in your account with a single click. No phone calls required.
+            </p>
+          </div>
         </div>
-      </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -76,14 +89,76 @@
   "settings": [
     {
       "type": "text",
+      "id": "tag_label",
+      "label": "Top Label",
+      "default": "● FREQUENTLY ASKED QUESTIONS"
+    },
+    {
+      "type": "text",
       "id": "title",
       "label": "Heading",
       "default": "Everything you need to know."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Everything you need to know about our slow cold-brew extraction, clean plant protein blend, and gut-toleration facts."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "Question & Answer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I prepare Vittal Protein Iced Coffee?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Simply add 1 scoop (included) into 8-10 oz of cold water, oat milk, or almond milk. Add 3-4 ice cubes, give it a quick 10-second shake in a shaker tumbler, and enjoy a velvety, rich cold brew ritual."
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "FAQ Accordion"
+      "name": "FAQ Accordion",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I prepare Vittal Protein Iced Coffee?",
+            "answer": "Simply add 1 scoop (included) into 8-10 oz of cold water, oat milk, or almond milk. Add 3-4 ice cubes, give it a quick 10-second shake in a shaker tumbler, and enjoy a velvety, rich cold brew ritual."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it really free of artificial sweeteners?",
+            "answer": "Yes! 100% free of sucralose, acesulfame potassium, aspartame, and erythritol. Vittal is naturally rounded using organic monk fruit extract for a silky taste without chemical aftertaste or gut bloat."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does the 30-day money-back guarantee work?",
+            "answer": "If you do not experience the clean energy lift and smooth flavor on your first order, simply reach out to support@vittal.com within 30 days. We will refund 100% of your first bag—keep the bag on us."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I pause or cancel my subscription anytime?",
+            "answer": "Yes, you have full control. You can skip an upcoming delivery, change frequency (every 2, 3, or 4 weeks), swap flavors, or cancel in your account with a single click. No phone calls required."
+          }
+        }
+      ]
     }
   ]
 }

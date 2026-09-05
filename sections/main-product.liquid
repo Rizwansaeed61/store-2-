@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Breadcrumbs -->
     <div style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 24px;">
-      <a href="/">Home</a> &rsaquo; <a href="/collections/all">Clean Performance</a> &rsaquo; <span style="color: var(--color-text);">Vittal Protein Iced Coffee</span>
+      <a href="/">Home</a> &rsaquo; <a href="/collections/all">Clean Performance</a> &rsaquo; <span style="color: var(--color-text);">{{ section.settings.title | default: 'Vittal Protein Iced Coffee' }}</span>
     </div>
 
     <div class="buy-box-card" style="padding: 48px 40px; margin-bottom: 64px;">
@@ -11,15 +11,19 @@
         <div class="product-gallery-main" style="position: relative; padding: 0; overflow: hidden; background: #FAF6F0; border-radius: var(--radius-md);">
           <!-- Top Floating Tag -->
           <div style="position: absolute; top: 16px; left: 16px; z-index: 5;">
-            <span class="pill-badge pill-badge-dark">● 100% COLD BREWED</span>
+            <span class="pill-badge pill-badge-dark">{{ section.settings.gallery_badge | default: '● 100% COLD BREWED' }}</span>
           </div>
 
-          <img 
-            id="main-gallery-image" 
-            src="{{ 'vittal-pouch.jpg' | asset_url }}" 
-            alt="Vittal Protein Iced Coffee Pouch" 
-            style="width: 100%; height: 480px; object-fit: cover; display: block;"
-          />
+          {% if section.settings.image_main != blank %}
+            {{ section.settings.image_main | image_url: width: 1000 | image_tag: id: 'main-gallery-image', style: 'width: 100%; height: 480px; object-fit: cover; display: block;' }}
+          {% else %}
+            <img 
+              id="main-gallery-image" 
+              src="{{ 'vittal-pouch.jpg' | asset_url }}" 
+              alt="{{ section.settings.title | default: 'Vittal Protein Iced Coffee Pouch' | escape }}" 
+              style="width: 100%; height: 480px; object-fit: cover; display: block;"
+            />
+          {% endif %}
 
           <!-- Bottom Micro Tags -->
           <div style="position: absolute; bottom: 14px; left: 0; right: 0; display: flex; justify-content: center; gap: 12px; font-size: 0.725rem; color: #FFFFFF; font-weight: 700; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">
@@ -31,17 +35,17 @@
 
         <!-- Thumbnails -->
         <div class="product-gallery-thumbs" style="margin-top: 20px;">
-          <div class="thumb-item active" data-img-src="{{ 'vittal-pouch.jpg' | asset_url }}" style="padding: 0; overflow: hidden;">
-            <img src="{{ 'vittal-pouch.jpg' | asset_url }}" alt="Pouch" style="width: 100%; height: 70px; object-fit: cover;" />
+          <div class="thumb-item active" data-img-src="{% if section.settings.image_main != blank %}{{ section.settings.image_main | image_url: width: 1000 }}{% else %}{{ 'vittal-pouch.jpg' | asset_url }}{% endif %}" style="padding: 0; overflow: hidden;">
+            <img src="{% if section.settings.image_main != blank %}{{ section.settings.image_main | image_url: width: 200 }}{% else %}{{ 'vittal-pouch.jpg' | asset_url }}{% endif %}" alt="Pouch" style="width: 100%; height: 70px; object-fit: cover;" />
           </div>
-          <div class="thumb-item" data-img-src="{{ 'vittal-pour.jpg' | asset_url }}" style="padding: 0; overflow: hidden;">
-            <img src="{{ 'vittal-pour.jpg' | asset_url }}" alt="Cold Brew Pour" style="width: 100%; height: 70px; object-fit: cover;" />
+          <div class="thumb-item" data-img-src="{% if section.settings.image_2 != blank %}{{ section.settings.image_2 | image_url: width: 1000 }}{% else %}{{ 'vittal-pour.jpg' | asset_url }}{% endif %}" style="padding: 0; overflow: hidden;">
+            <img src="{% if section.settings.image_2 != blank %}{{ section.settings.image_2 | image_url: width: 200 }}{% else %}{{ 'vittal-pour.jpg' | asset_url }}{% endif %}" alt="Cold Brew Pour" style="width: 100%; height: 70px; object-fit: cover;" />
           </div>
-          <div class="thumb-item" data-img-src="{{ 'vittal-nutrition.jpg' | asset_url }}" style="padding: 0; overflow: hidden;">
-            <img src="{{ 'vittal-nutrition.jpg' | asset_url }}" alt="Nutrition Label" style="width: 100%; height: 70px; object-fit: cover;" />
+          <div class="thumb-item" data-img-src="{% if section.settings.image_3 != blank %}{{ section.settings.image_3 | image_url: width: 1000 }}{% else %}{{ 'vittal-nutrition.jpg' | asset_url }}{% endif %}" style="padding: 0; overflow: hidden;">
+            <img src="{% if section.settings.image_3 != blank %}{{ section.settings.image_3 | image_url: width: 200 }}{% else %}{{ 'vittal-nutrition.jpg' | asset_url }}{% endif %}" alt="Nutrition Label" style="width: 100%; height: 70px; object-fit: cover;" />
           </div>
-          <div class="thumb-item" data-img-src="{{ 'vittal-shaker.jpg' | asset_url }}" style="padding: 0; overflow: hidden;">
-            <img src="{{ 'vittal-shaker.jpg' | asset_url }}" alt="Barista Shaker" style="width: 100%; height: 70px; object-fit: cover;" />
+          <div class="thumb-item" data-img-src="{% if section.settings.image_4 != blank %}{{ section.settings.image_4 | image_url: width: 1000 }}{% else %}{{ 'vittal-shaker.jpg' | asset_url }}{% endif %}" style="padding: 0; overflow: hidden;">
+            <img src="{% if section.settings.image_4 != blank %}{{ section.settings.image_4 | image_url: width: 200 }}{% else %}{{ 'vittal-shaker.jpg' | asset_url }}{% endif %}" alt="Barista Shaker" style="width: 100%; height: 70px; object-fit: cover;" />
           </div>
         </div>
       </div>
@@ -49,23 +53,23 @@
       <!-- Product Form Column -->
       <div class="product-info-column">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-          <span class="pill-badge pill-badge-gold" style="font-size: 0.7rem;">TOP RATED</span>
-          {% render 'rating-stars', rating: 4.9, count: 1420 %}
+          <span class="pill-badge pill-badge-gold" style="font-size: 0.7rem;">{{ section.settings.badge_text | default: 'TOP RATED' }}</span>
+          {% render 'rating-stars', rating: section.settings.rating_score | default: 4.9, count: section.settings.reviews_count | default: 1420 %}
         </div>
 
         <h1 style="font-size: 2.85rem; margin-bottom: 8px; line-height: 1.1;">
-          Vittal Protein
-          <span class="product-servings-badge" style="font-size: 0.85rem;">20 Servings</span>
+          {{ section.settings.title | default: 'Vittal Protein' }}
+          <span class="product-servings-badge" style="font-size: 0.85rem;">{{ section.settings.servings_text | default: '20 Servings' }}</span>
         </h1>
 
         <p style="color: var(--color-text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 24px;">
-          Cold-extracted Colombian Arabica blended seamlessly with complete micro-filtered plant protein. No chalk, no odor, pure clean morning stamina.
+          {{ section.settings.description | default: 'Cold-extracted Colombian Arabica blended seamlessly with complete micro-filtered plant protein. No chalk, no odor, pure clean morning stamina.' }}
         </p>
 
         <!-- Price Display -->
         <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px;">
-          <span id="current-price-display" style="font-size: 2rem; font-weight: 900; color: var(--color-text);">$39</span>
-          <span style="font-size: 1.15rem; text-decoration: line-through; color: var(--color-text-subtle);">$49</span>
+          <span id="current-price-display" style="font-size: 2rem; font-weight: 900; color: var(--color-text);">${{ section.settings.price_subscription | default: '39' }}</span>
+          <span style="font-size: 1.15rem; text-decoration: line-through; color: var(--color-text-subtle);">${{ section.settings.price_one_time | default: '49' }}</span>
           <span class="pill-badge pill-badge-dark" style="font-size: 0.7rem;">SAVE 20%</span>
         </div>
 
@@ -74,36 +78,36 @@
           <div class="spec-pill">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold-dark)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             <div>
-              <div style="font-weight: 700;">Iron &amp; B Vitamins</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Daily vitality support</div>
+              <div style="font-weight: 700;">{{ section.settings.spec_1_title | default: 'Iron & B Vitamins' }}</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">{{ section.settings.spec_1_desc | default: 'Daily vitality support' }}</div>
             </div>
           </div>
           <div class="spec-pill">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             <div>
-              <div style="font-weight: 700;">Bone Support</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Calcium &amp; D3 paired</div>
+              <div style="font-weight: 700;">{{ section.settings.spec_2_title | default: 'Bone Support' }}</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">{{ section.settings.spec_2_desc | default: 'Calcium & D3 paired' }}</div>
             </div>
           </div>
           <div class="spec-pill">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C59964" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             <div>
-              <div style="font-weight: 700;">Supports Muscle</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">20g amino-rich isolate</div>
+              <div style="font-weight: 700;">{{ section.settings.spec_3_title | default: 'Supports Muscle' }}</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">{{ section.settings.spec_3_desc | default: '20g amino-rich isolate' }}</div>
             </div>
           </div>
           <div class="spec-pill">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3c5f78" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             <div>
-              <div style="font-weight: 700;">Top Quality</div>
-              <div style="font-size: 0.7rem; color: var(--color-text-muted);">Independent 3rd-party lab</div>
+              <div style="font-weight: 700;">{{ section.settings.spec_4_title | default: 'Top Quality' }}</div>
+              <div style="font-size: 0.7rem; color: var(--color-text-muted);">{{ section.settings.spec_4_desc | default: 'Independent 3rd-party lab' }}</div>
             </div>
           </div>
         </div>
 
         <!-- Subscription Selector -->
         <div class="purchase-options">
-          <div class="purchase-option-card active" data-price="39.00" data-variant="Subscribe & Save 20%">
+          <div class="purchase-option-card active" data-price="{{ section.settings.price_subscription | default: '39.00' }}" data-variant="Subscribe & Save 20%">
             <div class="option-header">
               <label class="option-radio-label">
                 <input type="radio" name="pdp-purchase-type" checked style="accent-color: var(--color-espresso-dark);" />
@@ -111,7 +115,7 @@
                 <span class="pill-badge pill-badge-dark" style="font-size: 0.65rem; padding: 2px 8px;">MOST POPULAR</span>
               </label>
               <div class="option-price-box">
-                <span class="option-price-main">$39.00</span>
+                <span class="option-price-main">${{ section.settings.price_subscription | default: '39.00' }}</span>
                 <span style="font-size: 0.75rem; color: var(--color-text-muted);">/ bag</span>
               </div>
             </div>
@@ -120,14 +124,14 @@
             </div>
           </div>
 
-          <div class="purchase-option-card" data-price="49.00" data-variant="One-Time Purchase">
+          <div class="purchase-option-card" data-price="{{ section.settings.price_one_time | default: '49.00' }}" data-variant="One-Time Purchase">
             <div class="option-header">
               <label class="option-radio-label">
                 <input type="radio" name="pdp-purchase-type" style="accent-color: var(--color-espresso-dark);" />
                 <span>One-Time Purchase</span>
               </label>
               <div class="option-price-box">
-                <span class="option-price-main">$49.00</span>
+                <span class="option-price-main">${{ section.settings.price_one_time | default: '49.00' }}</span>
               </div>
             </div>
             <div class="option-details">
@@ -139,7 +143,7 @@
         <!-- Stock Notice -->
         <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8125rem; font-weight: 600; color: #2E7D32; margin-bottom: 20px;">
           <span style="width: 8px; height: 8px; border-radius: 50%; background: #2E7D32;"></span>
-          <span>In Stock &mdash; Order today to receive by {{ 'now' | date: '%b %d' }}</span>
+          <span>{{ section.settings.stock_notice | default: 'In Stock — Order today to receive by' }} {{ 'now' | date: '%b %d' }}</span>
         </div>
 
         <!-- Add to Cart Row -->
@@ -154,12 +158,12 @@
             id="main-atc-button"
             class="btn btn-primary add-to-cart-btn" 
             data-action="add-to-cart"
-            data-product-title="Vittal Protein Iced Coffee"
-            data-product-price="39.00"
+            data-product-title="{{ section.settings.title | default: 'Vittal Protein Iced Coffee' }}"
+            data-product-price="{{ section.settings.price_subscription | default: '39.00' }}"
             data-product-variant="Subscribe & Save 20%"
-            data-product-image="{{ 'vittal-pouch.jpg' | asset_url }}"
+            data-product-image="{% if section.settings.image_main != blank %}{{ section.settings.image_main | image_url: width: 800 }}{% else %}{{ 'vittal-pouch.jpg' | asset_url }}{% endif %}"
           >
-            <span>ADD TO CART &mdash; <span class="atc-dynamic-price">$39.00</span></span>
+            <span>ADD TO CART &mdash; <span class="atc-dynamic-price">${{ section.settings.price_subscription | default: '39.00' }}</span></span>
           </button>
         </div>
 
@@ -167,15 +171,15 @@
         <div class="micro-guarantees-row">
           <span style="display: inline-flex; align-items: center; gap: 6px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            30-Day Money-Back Guarantee
+            {{ section.settings.guarantee_1 | default: '30-Day Money-Back Guarantee' }}
           </span>
           <span style="display: inline-flex; align-items: center; gap: 6px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/></svg>
-            Free Express Delivery
+            {{ section.settings.guarantee_2 | default: 'Free Express Delivery' }}
           </span>
           <span style="display: inline-flex; align-items: center; gap: 6px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-gold)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            256-Bit SSL Protection
+            {{ section.settings.guarantee_3 | default: '256-Bit SSL Protection' }}
           </span>
         </div>
       </div>
@@ -186,6 +190,169 @@
 {% schema %}
 {
   "name": "Main Product (PDP)",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Product Title",
+      "default": "Vittal Protein Iced Coffee"
+    },
+    {
+      "type": "text",
+      "id": "servings_text",
+      "label": "Servings Tag",
+      "default": "20 Servings"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Product Rating Badge",
+      "default": "TOP RATED"
+    },
+    {
+      "type": "text",
+      "id": "rating_score",
+      "label": "Rating Score",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "reviews_count",
+      "label": "Review Count",
+      "default": "1420"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Product Description",
+      "default": "Cold-extracted Colombian Arabica blended seamlessly with complete micro-filtered plant protein. No chalk, no odor, pure clean morning stamina."
+    },
+    {
+      "type": "header",
+      "content": "Pricing"
+    },
+    {
+      "type": "text",
+      "id": "price_subscription",
+      "label": "Subscription Price ($)",
+      "default": "39.00"
+    },
+    {
+      "type": "text",
+      "id": "price_one_time",
+      "label": "One-Time Price ($)",
+      "default": "49.00"
+    },
+    {
+      "type": "header",
+      "content": "Gallery Images"
+    },
+    {
+      "type": "text",
+      "id": "gallery_badge",
+      "label": "Floating Image Badge",
+      "default": "● 100% COLD BREWED"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_main",
+      "label": "Main Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Thumbnail 2 (Lifestyle/Pour)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Thumbnail 3 (Nutrition Panel)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Thumbnail 4 (Shaker / Extra)"
+    },
+    {
+      "type": "header",
+      "content": "Product Benefit Pills"
+    },
+    {
+      "type": "text",
+      "id": "spec_1_title",
+      "label": "Benefit 1 Title",
+      "default": "Iron & B Vitamins"
+    },
+    {
+      "type": "text",
+      "id": "spec_1_desc",
+      "label": "Benefit 1 Subtitle",
+      "default": "Daily vitality support"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_title",
+      "label": "Benefit 2 Title",
+      "default": "Bone Support"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_desc",
+      "label": "Benefit 2 Subtitle",
+      "default": "Calcium & D3 paired"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_title",
+      "label": "Benefit 3 Title",
+      "default": "Supports Muscle"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_desc",
+      "label": "Benefit 3 Subtitle",
+      "default": "20g amino-rich isolate"
+    },
+    {
+      "type": "text",
+      "id": "spec_4_title",
+      "label": "Benefit 4 Title",
+      "default": "Top Quality"
+    },
+    {
+      "type": "text",
+      "id": "spec_4_desc",
+      "label": "Benefit 4 Subtitle",
+      "default": "Independent 3rd-party lab"
+    },
+    {
+      "type": "header",
+      "content": "Stock & Guarantees"
+    },
+    {
+      "type": "text",
+      "id": "stock_notice",
+      "label": "Stock Notice Text",
+      "default": "In Stock — Order today to receive by"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_1",
+      "label": "Guarantee 1",
+      "default": "30-Day Money-Back Guarantee"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_2",
+      "label": "Guarantee 2",
+      "default": "Free Express Delivery"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_3",
+      "label": "Guarantee 3",
+      "default": "256-Bit SSL Protection"
+    }
+  ]
 }
 {% endschema %}

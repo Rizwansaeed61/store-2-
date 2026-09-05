@@ -1,9 +1,9 @@
 <div class="page-section" style="padding: 64px 0 96px;">
-  <div class="container container-narrow">
-    <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+  <div class="container {% if section.settings.page_width == 'narrow' %}container-narrow{% endif %}">
+    <div class="section-header" style="text-align: {{ section.settings.text_alignment | default: 'left' }}; margin-bottom: 32px;">
       <h1 style="font-size: 2.75rem;">{{ page.title | default: 'About Vittal' }}</h1>
     </div>
-    <div class="rte" style="line-height: 1.8; font-size: 1.05rem; color: var(--color-text);">
+    <div class="rte" style="line-height: 1.8; font-size: 1.05rem; color: var(--color-text); text-align: {{ section.settings.text_alignment | default: 'left' }};">
       {{ page.content | default: '<p>At Vittal, we believe morning rituals should empower high performance without health compromises. Our 100% single-origin Colombian cold brew combines artisan coffee craftsmanship with pure plant protein isolates.</p>' }}
     </div>
   </div>
@@ -12,6 +12,39 @@
 {% schema %}
 {
   "name": "Main Page",
-  "settings": []
+  "settings": [
+    {
+      "type": "select",
+      "id": "page_width",
+      "label": "Page Width Layout",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Narrow Readable Container"
+        },
+        {
+          "value": "regular",
+          "label": "Standard Container"
+        }
+      ],
+      "default": "narrow"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left Aligned"
+        },
+        {
+          "value": "center",
+          "label": "Centered"
+        }
+      ],
+      "default": "left"
+    }
+  ]
 }
 {% endschema %}

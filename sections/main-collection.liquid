@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Breadcrumbs -->
     <div style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 24px 0 12px;">
-      <a href="/">Home</a> &rsaquo; <a href="/collections/all">Shop</a> &rsaquo; <span style="color: var(--color-text);">Functional Coffee & Protein Rituals</span>
+      <a href="/">Home</a> &rsaquo; <a href="/collections/all">Shop</a> &rsaquo; <span style="color: var(--color-text);">{{ section.settings.title | default: 'Functional Coffee & Protein Rituals' }}</span>
     </div>
 
     <!-- Collection Hero Banner -->
@@ -10,115 +10,106 @@
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
         <span class="text-uppercase-label" style="display: inline-flex; align-items: center; gap: 6px;">
           <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent-gold);"></span>
-          100% SINGLE-ORIGIN COLOMBIAN BREW
+          {{ section.settings.hero_tag | default: '100% SINGLE-ORIGIN COLOMBIAN BREW' }}
         </span>
         <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8125rem; font-weight: 700;">
           <span style="color: var(--color-accent-gold);">★★★★★</span>
-          <span>4.87 / 5.0 (3,800+ Verified Morning Drinkers)</span>
+          <span>{{ section.settings.rating_text | default: '4.87 / 5.0 (3,800+ Verified Morning Drinkers)' }}</span>
         </div>
       </div>
 
-      <h1>Functional Coffee &amp; Protein Rituals</h1>
+      <h1>{{ section.settings.title | default: 'Functional Coffee & Protein Rituals' }}</h1>
       
       <p style="color: var(--color-text-muted); max-width: 760px; font-size: 1.05rem;">
-        Replace slow, sleep-inducing morning routines with cold brews supercharged with 20g of silky filtered protein isolates, zero artificial grit, and clean, steady energy that honors your morning standard.
+        {{ section.settings.subtitle | default: 'Replace slow, sleep-inducing morning routines with cold brews supercharged with 20g of silky filtered protein isolates, zero artificial grit, and clean, steady energy that honors your morning standard.' }}
       </p>
 
       <!-- Category Filter Pills -->
-      <div class="collection-pills-nav">
-        <button class="category-pill active" data-category="all">All Products (8)</button>
-        <button class="category-pill" data-category="cold-brew">Cold Brew Coffee</button>
-        <button class="category-pill" data-category="rtd">Ready-To-Drink Cans</button>
-        <button class="category-pill" data-category="bundles">Bundles &amp; Subscriptions</button>
-        <button class="category-pill" data-category="gear">Brew Accessories</button>
-        <button class="category-pill" data-category="special">Special Roasting</button>
-      </div>
+      {% if section.settings.enable_filter_pills %}
+        <div class="collection-pills-nav">
+          <button class="category-pill active" data-category="all">All Products (8)</button>
+          <button class="category-pill" data-category="cold-brew">Cold Brew Coffee</button>
+          <button class="category-pill" data-category="rtd">Ready-To-Drink Cans</button>
+          <button class="category-pill" data-category="bundles">Bundles &amp; Subscriptions</button>
+          <button class="category-pill" data-category="gear">Brew Accessories</button>
+          <button class="category-pill" data-category="special">Special Roasting</button>
+        </div>
+      {% endif %}
 
       <!-- Collection Toolbar -->
       <div class="collection-toolbar">
         <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-          <span class="pill-badge pill-badge-dark" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
-            Filters (4)
-          </span>
-          <span class="pill-badge pill-badge-subtle">Gluten / Vegan Whey &times;</span>
-          <span class="pill-badge pill-badge-subtle">French Drip &times;</span>
-          <span class="pill-badge pill-badge-subtle">Zero Sugar &times;</span>
+          {% if section.settings.enable_filtering %}
+            <span class="pill-badge pill-badge-dark" style="cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+              Filters (4)
+            </span>
+            <span class="pill-badge pill-badge-subtle">Gluten / Vegan Whey &times;</span>
+            <span class="pill-badge pill-badge-subtle">French Drip &times;</span>
+            <span class="pill-badge pill-badge-subtle">Zero Sugar &times;</span>
+          {% endif %}
         </div>
 
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 0.875rem; font-weight: 600;">
-          <span>Sort by:</span>
-          <select style="border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 6px 12px; background: #fff;">
-            <option>Featured Rituals</option>
-            <option>Best Selling</option>
-            <option>Caffeine: High to Low</option>
-            <option>Price: Low to High</option>
-          </select>
-        </div>
+        {% if section.settings.enable_sorting %}
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 0.875rem; font-weight: 600;">
+            <span>Sort by:</span>
+            <select style="border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 6px 12px; background: #fff;">
+              <option>Featured Rituals</option>
+              <option>Best Selling</option>
+              <option>Caffeine: High to Low</option>
+              <option>Price: Low to High</option>
+            </select>
+          </div>
+        {% endif %}
       </div>
 
       <!-- Products Grid with Individual Product Photography -->
-      <div class="products-grid">
-        <!-- Product 1: Original Colombian Pouch -->
+      <div class="products-grid" id="collection-grid" style="grid-template-columns: repeat({{ section.settings.grid_columns | default: '4' }}, 1fr);">
+        <!-- Product 1: Core Pouch -->
         {% render 'product-card',
           title: "Vittal Protein Iced Coffee",
           price: 39.00,
           compare_price: 49.00,
-          badge: "BESTSELLER",
+          badge: "ORIGINAL BESTSELLER",
           image: "vittal-pouch.jpg",
           category: "cold-brew",
-          tag1: "20g Plant Protein",
-          tag2: "120mg Natural Caffeine",
+          tag1: "20g Plant Isolate",
+          tag2: "Zero Sugar Monk Fruit",
           is_sold_out: false
         %}
 
-        <!-- Product 2: Mocha Protein Cold Brew -->
+        <!-- Product 2: Mocha -->
         {% render 'product-card',
-          title: "Vittal Mocha Protein Cold Brew",
+          title: "Mocha Protein Cold Brew",
           price: 39.00,
           compare_price: 49.00,
-          badge: "NEW FLAVOR",
+          badge: "NEW RECIPE",
           image: "vittal-mocha.jpg",
           category: "cold-brew",
-          tag1: "Rich Dark Cocoa",
-          tag2: "Hydration Electrolytes",
+          tag1: "Raw Cacao Nibs",
+          tag2: "20g Plant Isolate",
           is_sold_out: false
         %}
 
-        <!-- Product 3: Vanilla Bean Cold Brew -->
+        <!-- Product 3: Vanilla -->
         {% render 'product-card',
-          title: "Vittal Vanilla Bean Cold Brew",
+          title: "Vanilla Bean Cold Brew",
           price: 39.00,
           compare_price: 49.00,
-          badge: "OUT OF STOCK",
+          badge: "POPULAR",
           image: "vittal-vanilla.jpg",
           category: "cold-brew",
-          tag1: "Madagascar Vanilla",
-          tag2: "Gut Comfort Fiber",
-          is_sold_out: true
+          tag1: "Madagascar Pods",
+          tag2: "Digestive Enzymes",
+          is_sold_out: false
         %}
-
-        <!-- Quiz Promo Card embedded in grid -->
-        <div class="quiz-promo-card">
-          <div class="quiz-promo-content">
-            <span class="pill-badge pill-badge-gold" style="margin-bottom: 12px;">MATCH YOUR MORNING</span>
-            <h3>Not sure which roast fits your morning?</h3>
-            <p>Take the 60-Second Ritual Quiz. We'll assess your caffeine sensitivity, workout schedule, and taste profile to recommend your perfect stack.</p>
-            <a href="#quiz" class="btn btn-gold" style="margin-top: 20px;">
-              Take the 60-Sec Quiz &rarr;
-            </a>
-          </div>
-          <div style="font-size: 5rem; opacity: 0.85;">
-            ☕
-          </div>
-        </div>
 
         <!-- Product 4: Master Trio Bundle -->
         {% render 'product-card',
           title: "Vittal Master Trio Bundle",
           price: 89.00,
           compare_price: 117.00,
-          badge: "BEST VALUE • 3-PACK",
+          badge: "SAVE $28 • BEST VALUE",
           image: "vittal-bundle.jpg",
           category: "bundles",
           tag1: "All 3 Core Flavors",
@@ -126,27 +117,27 @@
           is_sold_out: false
         %}
 
-        <!-- Product 5: RTD Can 12-Pack -->
+        <!-- Product 5: Chilled RTD Cans -->
         {% render 'product-card',
-          title: "Vittal RTD Chilled Cold Brew",
-          price: 42.00,
+          title: "Chilled Cold Brew Cans (12-Pack)",
+          price: 44.00,
           compare_price: 52.00,
-          badge: "RTD READY CAN",
+          badge: "READY TO DRINK",
           image: "vittal-can.jpg",
           category: "rtd",
-          tag1: "12 Cans (12 fl oz)",
-          tag2: "Grab & Go Chilled",
+          tag1: "Grab & Go Nitro",
+          tag2: "15g Protein Can",
           is_sold_out: false
         %}
 
         <!-- Product 6: Decaf -->
         {% render 'product-card',
-          title: "Vittal Colombian Decaf Protein",
+          title: "Colombian Decaf Protein Coffee",
           price: 39.00,
           compare_price: 49.00,
-          badge: "OUT OF STOCK",
+          badge: "99.9% CAFFEINE FREE",
           image: "vittal-decaf.jpg",
-          category: "special",
+          category: "cold-brew",
           tag1: "Swiss Water Decaf",
           tag2: "Night-Time Recovery",
           is_sold_out: true
@@ -185,6 +176,65 @@
 {% schema %}
 {
   "name": "Main Collection",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_tag",
+      "label": "Top Label",
+      "default": "100% SINGLE-ORIGIN COLOMBIAN BREW"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating Highlight Text",
+      "default": "4.87 / 5.0 (3,800+ Verified Morning Drinkers)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Collection Title",
+      "default": "Functional Coffee & Protein Rituals"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Collection Subtitle",
+      "default": "Replace slow, sleep-inducing morning routines with cold brews supercharged with 20g of silky filtered protein isolates, zero artificial grit, and clean, steady energy that honors your morning standard."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filter_pills",
+      "label": "Show Category Filter Navigation",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "label": "Show Filter Badges",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "label": "Show Sorting Dropdown",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "grid_columns",
+      "label": "Grid Columns",
+      "options": [
+        {
+          "value": "3",
+          "label": "3 Columns"
+        },
+        {
+          "value": "4",
+          "label": "4 Columns"
+        }
+      ],
+      "default": "4"
+    }
+  ]
 }
 {% endschema %}

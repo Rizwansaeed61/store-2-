@@ -2,15 +2,15 @@
   <div class="container">
     <div class="quiz-promo-card" style="margin: 0;">
       <div class="quiz-promo-content">
-        <span class="pill-badge pill-badge-gold" style="margin-bottom: 12px;">60-SECOND COFFEE QUIZ</span>
-        <h3>Not sure which roast fits your morning?</h3>
-        <p>Take our 60-Second Ritual Quiz. We will assess your caffeine sensitivity, workout schedule, and taste profile to recommend your perfect stack.</p>
-        <a href="/pages/coffee-quiz" class="btn btn-gold" style="margin-top: 20px;">
-          Take the 60-Sec Quiz &rarr;
+        <span class="pill-badge pill-badge-gold" style="margin-bottom: 12px;">{{ section.settings.badge_text | default: '60-SECOND COFFEE QUIZ' }}</span>
+        <h3>{{ section.settings.heading | default: 'Not sure which roast fits your morning?' }}</h3>
+        <p>{{ section.settings.text | default: 'Take our 60-Second Ritual Quiz. We will assess your caffeine sensitivity, workout schedule, and taste profile to recommend your perfect stack.' }}</p>
+        <a href="{{ section.settings.button_link | default: '/pages/coffee-quiz' }}" class="btn btn-gold" style="margin-top: 20px;">
+          {{ section.settings.button_label | default: 'Take the 60-Sec Quiz &rarr;' }}
         </a>
       </div>
       <div style="font-size: 5rem; opacity: 0.8;">
-        ☕
+        {{ section.settings.icon_emoji | default: '☕' }}
       </div>
     </div>
   </div>
@@ -19,7 +19,43 @@
 {% schema %}
 {
   "name": "Collection Quiz Banner",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Tag",
+      "default": "60-SECOND COFFEE QUIZ"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Card Heading",
+      "default": "Not sure which roast fits your morning?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Card Description",
+      "default": "Take our 60-Second Ritual Quiz. We will assess your caffeine sensitivity, workout schedule, and taste profile to recommend your perfect stack."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Take the 60-Sec Quiz →"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "icon_emoji",
+      "label": "Right Graphic Emoji",
+      "default": "☕"
+    }
+  ],
   "presets": [
     {
       "name": "Collection Quiz Banner"

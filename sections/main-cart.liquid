@@ -1,14 +1,14 @@
 <div class="cart-page-section" style="padding: 64px 0 96px;">
   <div class="container container-narrow">
     <div class="section-header" style="text-align: left; margin-bottom: 36px;">
-      <h1 style="font-size: 2.75rem;">Your Morning Ritual Cart</h1>
-      <p>Enjoy free express shipping on all orders over $45.</p>
+      <h1 style="font-size: 2.75rem;">{{ section.settings.heading | default: 'Your Morning Ritual Cart' }}</h1>
+      <p>{{ section.settings.subheading | default: 'Enjoy free express shipping on all orders over $45.' }}</p>
     </div>
 
     <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm);">
       <div class="drawer-item" style="border-bottom: 1px solid var(--color-border); padding-bottom: 24px; margin-bottom: 24px;">
         <div class="drawer-item-img" style="width: 100px; height: 100px;">
-          <img src="{{ 'vittal-pouch.svg' | asset_url }}" alt="Vittal Protein Iced Coffee" style="max-height: 80px;" />
+          <img src="{{ 'vittal-pouch.jpg' | asset_url }}" alt="Vittal Protein Iced Coffee" style="max-height: 80px; object-fit: cover;" />
         </div>
         <div class="drawer-item-info">
           <h3 style="font-size: 1.25rem;">Vittal Protein Iced Coffee</h3>
@@ -31,10 +31,10 @@
           <span>$39.00</span>
         </div>
         <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 24px;">
-          Taxes and shipping calculated at checkout. 30-Day Money-Back Guarantee applies.
+          {{ section.settings.disclaimer | default: 'Taxes and shipping calculated at checkout. 30-Day Money-Back Guarantee applies.' }}
         </p>
         <a href="/checkout" class="btn btn-primary btn-full" style="height: 54px; font-size: 1.05rem;">
-          PROCEED TO CHECKOUT &rarr;
+          {{ section.settings.checkout_btn_text | default: 'PROCEED TO CHECKOUT &rarr;' }}
         </a>
       </div>
     </div>
@@ -44,6 +44,31 @@
 {% schema %}
 {
   "name": "Main Cart",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Cart Page Heading",
+      "default": "Your Morning Ritual Cart"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Cart Subheading",
+      "default": "Enjoy free express shipping on all orders over $45."
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Checkout Disclaimer",
+      "default": "Taxes and shipping calculated at checkout. 30-Day Money-Back Guarantee applies."
+    },
+    {
+      "type": "text",
+      "id": "checkout_btn_text",
+      "label": "Checkout Button Label",
+      "default": "PROCEED TO CHECKOUT →"
+    }
+  ]
 }
 {% endschema %}
