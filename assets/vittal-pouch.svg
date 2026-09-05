@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pouchBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#402719"/>
+      <stop offset="35%" stop-color="#2c1a11"/>
+      <stop offset="70%" stop-color="#22140d"/>
+      <stop offset="100%" stop-color="#140a06"/>
+    </linearGradient>
+    <linearGradient id="foilGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f9dfa5"/>
+      <stop offset="45%" stop-color="#c89658"/>
+      <stop offset="80%" stop-color="#eac285"/>
+      <stop offset="100%" stop-color="#a4753c"/>
+    </linearGradient>
+    <linearGradient id="labelBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7"/>
+      <stop offset="100%" stop-color="#f2ece1"/>
+    </linearGradient>
+    <filter id="pouchShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="15" flood-color="#1a0f07" flood-opacity="0.35"/>
+    </filter>
+    <filter id="sealShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Pouch Body Shape -->
+  <g filter="url(#pouchShadow)">
+    <!-- Top heat seal line -->
+    <path d="M100,50 L300,50 L310,75 L320,410 C320,430 300,445 270,448 L130,448 C100,445 80,430 80,410 L90,75 Z" fill="url(#pouchBg)"/>
+    <!-- Top ribbing grooves -->
+    <line x1="102" y1="58" x2="298" y2="58" stroke="#1f120a" stroke-width="2"/>
+    <line x1="100" y1="64" x2="300" y2="64" stroke="#1f120a" stroke-width="2"/>
+    <line x1="98" y1="70" x2="302" y2="70" stroke="#1f120a" stroke-width="2"/>
+    
+    <!-- Notch cutouts for tear strip -->
+    <polygon points="87,78 95,83 88,88" fill="#fbf9f5"/>
+    <polygon points="313,78 305,83 312,88" fill="#fbf9f5"/>
+
+    <!-- Pouch Subtle Highlight Contour -->
+    <path d="M100,75 Q115,250 105,420" stroke="#5a3924" stroke-width="8" stroke-linecap="round" opacity="0.35" fill="none"/>
+    <path d="M300,75 Q285,250 295,420" stroke="#0e0603" stroke-width="12" stroke-linecap="round" opacity="0.4" fill="none"/>
+
+    <!-- Front Premium Label -->
+    <g filter="url(#sealShadow)">
+      <rect x="115" y="115" width="170" height="260" rx="14" fill="url(#labelBg)"/>
+      <rect x="120" y="120" width="160" height="250" rx="10" fill="none" stroke="#e0d4c3" stroke-width="1.2"/>
+      
+      <!-- Top Badge -->
+      <rect x="145" y="132" width="110" height="18" rx="9" fill="#201610"/>
+      <text x="200" y="144" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="700" fill="#f4ebd9" text-anchor="middle" letter-spacing="1.2">100% SINGLE ORIGIN</text>
+
+      <!-- Brand Logo -->
+      <text x="200" y="180" font-family="'Georgia', serif" font-size="30" font-weight="900" fill="#201610" text-anchor="middle" letter-spacing="-0.5">Vittal<tspan fill="url(#foilGold)">.</tspan></text>
+      
+      <!-- Sub Brand Tag -->
+      <text x="200" y="196" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" font-weight="700" fill="#8c7a6b" text-anchor="middle" letter-spacing="2">PROTEIN ICED COFFEE</text>
+
+      <line x1="140" y1="208" x2="260" y2="208" stroke="url(#foilGold)" stroke-width="1.5"/>
+
+      <!-- Flavor Callout -->
+      <text x="200" y="225" font-family="'Georgia', serif" font-size="12" font-style="italic" font-weight="600" fill="#2a180e" text-anchor="middle">Colombian Cold Brew</text>
+      <text x="200" y="238" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="7.5" fill="#6d5e53" text-anchor="middle">Slow Steeping • Silk Micro-Filtered</text>
+
+      <!-- Nutrition Pills Grid -->
+      <g transform="translate(126, 255)">
+        <!-- Pill 1 -->
+        <rect x="0" y="0" width="46" height="38" rx="6" fill="#f6f1e8" stroke="#decbb8" stroke-width="1"/>
+        <text x="23" y="17" font-family="-apple-system, sans-serif" font-size="12" font-weight="800" fill="#201610" text-anchor="middle">20g</text>
+        <text x="23" y="29" font-family="-apple-system, sans-serif" font-size="6.5" font-weight="600" fill="#7a6b5e" text-anchor="middle">PROTEIN</text>
+
+        <!-- Pill 2 -->
+        <rect x="51" y="0" width="46" height="38" rx="6" fill="#f6f1e8" stroke="#decbb8" stroke-width="1"/>
+        <text x="74" y="17" font-family="-apple-system, sans-serif" font-size="12" font-weight="800" fill="#201610" text-anchor="middle">0g</text>
+        <text x="74" y="29" font-family="-apple-system, sans-serif" font-size="6.5" font-weight="600" fill="#7a6b5e" text-anchor="middle">SUGAR</text>
+
+        <!-- Pill 3 -->
+        <rect x="102" y="0" width="46" height="38" rx="6" fill="#f6f1e8" stroke="#decbb8" stroke-width="1"/>
+        <text x="125" y="17" font-family="-apple-system, sans-serif" font-size="12" font-weight="800" fill="#201610" text-anchor="middle">120<tspan font-size="8">mg</tspan></text>
+        <text x="125" y="29" font-family="-apple-system, sans-serif" font-size="6.5" font-weight="600" fill="#7a6b5e" text-anchor="middle">CAFFEINE</text>
+      </g>
+
+      <!-- Bottom Servings & Net Weight -->
+      <rect x="135" y="310" width="130" height="20" rx="4" fill="#2a1a10"/>
+      <text x="200" y="323" font-family="-apple-system, sans-serif" font-size="8" font-weight="700" fill="#f9dfa5" text-anchor="middle" letter-spacing="0.5">20 SERVINGS • NET WT 1.4 LBS (635g)</text>
+
+      <!-- Seal Stamp -->
+      <circle cx="200" cy="348" r="11" fill="none" stroke="url(#foilGold)" stroke-width="1"/>
+      <polygon points="200,342 203,346 207,346 204,349 205,353 200,351 195,353 196,349 193,346 197,346" fill="url(#foilGold)"/>
+    </g>
+
+    <!-- Bottom gusset shadow reflection -->
+    <ellipse cx="200" cy="452" rx="90" ry="8" fill="#150b06" opacity="0.4"/>
+  </g>
+</svg>

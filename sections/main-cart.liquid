@@ -1,0 +1,49 @@
+<div class="cart-page-section" style="padding: 64px 0 96px;">
+  <div class="container container-narrow">
+    <div class="section-header" style="text-align: left; margin-bottom: 36px;">
+      <h1 style="font-size: 2.75rem;">Your Morning Ritual Cart</h1>
+      <p>Enjoy free express shipping on all orders over $45.</p>
+    </div>
+
+    <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm);">
+      <div class="drawer-item" style="border-bottom: 1px solid var(--color-border); padding-bottom: 24px; margin-bottom: 24px;">
+        <div class="drawer-item-img" style="width: 100px; height: 100px;">
+          <img src="{{ 'vittal-pouch.svg' | asset_url }}" alt="Vittal Protein Iced Coffee" style="max-height: 80px;" />
+        </div>
+        <div class="drawer-item-info">
+          <h3 style="font-size: 1.25rem;">Vittal Protein Iced Coffee</h3>
+          <p style="color: var(--color-text-muted); font-size: 0.85rem; margin: 4px 0 12px;">Subscribe &amp; Save 20% &bull; Every 30 Days</p>
+          <div class="drawer-item-actions">
+            <div class="qty-selector qty-selector-group" style="height: 38px;">
+              <button class="qty-btn" data-qty-action="minus">&minus;</button>
+              <input class="qty-input" type="text" value="1" readonly />
+              <button class="qty-btn" data-qty-action="plus">&plus;</button>
+            </div>
+            <span style="font-size: 1.25rem; font-weight: 800;">$39.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary & Checkout -->
+      <div style="border-top: 1px solid var(--color-border-light); padding-top: 24px;">
+        <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 800; margin-bottom: 16px;">
+          <span>Subtotal</span>
+          <span>$39.00</span>
+        </div>
+        <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 24px;">
+          Taxes and shipping calculated at checkout. 30-Day Money-Back Guarantee applies.
+        </p>
+        <a href="/checkout" class="btn btn-primary btn-full" style="height: 54px; font-size: 1.05rem;">
+          PROCEED TO CHECKOUT &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Cart",
+  "settings": []
+}
+{% endschema %}

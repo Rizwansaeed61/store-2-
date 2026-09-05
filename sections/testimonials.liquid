@@ -1,0 +1,91 @@
+<section class="testimonials-section" id="reviews">
+  <div class="container">
+    <div class="testimonials-header">
+      <div>
+        <span class="text-uppercase-label">● REAL RITUAL. REAL RESULTS.</span>
+        <h2 style="font-size: 2.75rem; margin-top: 10px;">Over 1,400+ 5-Star Morning Rituals</h2>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 2.5rem; font-weight: 900; line-height: 1;">4.9</div>
+        {% render 'rating-stars', rating: 4.9, count: 1420 %}
+      </div>
+    </div>
+
+    <div class="testimonials-grid">
+      <!-- Review 1 -->
+      <div class="testimonial-card">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            {% render 'rating-stars' %}
+            <span class="pill-badge pill-badge-subtle" style="font-size: 0.65rem;">✓ Verified Buyer</span>
+          </div>
+          <h3 class="testimonial-quote">"Finally real coffee taste with zero chalk."</h3>
+          <p class="testimonial-text">
+            "Replaced my daily $7 latte run completely. I shake it with cold water and ice cubes. Keeps me totally focused through my 1pm executive meetings without any sugar crash."
+          </p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">MT</div>
+          <div class="author-info">
+            <h4>Marcus T.</h4>
+            <p>Fitness Coach & Founder &bull; Austin, TX</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="testimonial-card">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            {% render 'rating-stars' %}
+            <span class="pill-badge pill-badge-subtle" style="font-size: 0.65rem;">✓ Verified Buyer</span>
+          </div>
+          <h3 class="testimonial-quote">"Zero 2 PM caffeine crash."</h3>
+          <p class="testimonial-text">
+            "As a certified coffee snob who trains 5 days a week, I was intensely skeptical. The flavor notes of real Arabica come through crisp and bold. Dissolves in 10 seconds."
+          </p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">SR</div>
+          <div class="author-info">
+            <h4>Sarah R.</h4>
+            <p>Creative Director &bull; New York, NY</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="testimonial-card">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            {% render 'rating-stars' %}
+            <span class="pill-badge pill-badge-subtle" style="font-size: 0.65rem;">✓ Verified Buyer</span>
+          </div>
+          <h3 class="testimonial-quote">"Gentle on the stomach and zero jitters."</h3>
+          <p class="testimonial-text">
+            "Regular whey shakes gave me uncomfortable bloating. The plant protein in Vittal is so clean and the added B-vitamins keep my mind razor sharp all morning."
+          </p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">ES</div>
+          <div class="author-info">
+            <h4>Eric S.</h4>
+            <p>Software Architect &bull; Seattle, WA</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ]
+}
+{% endschema %}

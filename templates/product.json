@@ -1,0 +1,33 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "nutrition_specs": {
+      "type": "product-nutrition-specs",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {
+        "title": "Everything you need to know."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "nutrition_specs",
+    "testimonials",
+    "recommendations",
+    "faq"
+  ]
+}

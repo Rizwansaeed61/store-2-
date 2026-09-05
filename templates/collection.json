@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main_collection": {
+      "type": "main-collection",
+      "settings": {}
+    },
+    "trust_badges": {
+      "type": "trust-badges",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {
+        "title": "Frequently Asked Questions"
+      }
+    }
+  },
+  "order": [
+    "main_collection",
+    "trust_badges",
+    "faq"
+  ]
+}

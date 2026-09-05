@@ -1,0 +1,140 @@
+<section class="comparison-section" id="compare">
+  <div class="container">
+    <div class="section-header">
+      <span class="text-uppercase-label">● NUTRITIONAL SUPERIORITY</span>
+      <h2>{{ section.settings.title | default: 'Why Vittal beats your daily coffee routine.' }}</h2>
+      <p>{{ section.settings.subtitle | default: 'See how we compare against standard coffee house drinks and chalky protein shakes.' }}</p>
+    </div>
+
+    <div class="comparison-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Nutritional Metric</th>
+            <th class="col-highlight" style="width: 30%; text-align: center;">
+              <span class="pill-badge pill-badge-dark" style="margin-bottom: 6px;">OUR RITUAL</span>
+              <div style="font-size: 1.15rem; font-weight: 800;">Vittal Cold Brew</div>
+            </th>
+            <th style="width: 22%; text-align: center;">
+              <div style="font-size: 1.05rem; font-weight: 700; color: #73675E;">Traditional Frappe</div>
+            </th>
+            <th style="width: 23%; text-align: center;">
+              <div style="font-size: 1.05rem; font-weight: 700; color: #73675E;">Typical RTD Shake</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1: Clean Protein -->
+          <tr>
+            <td>
+              <strong>Clean Protein</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Macro quality & source</div>
+            </td>
+            <td class="col-highlight" style="text-align: center;">
+              <span class="pill-metric-green">20g Plant Isolate</span>
+            </td>
+            <td style="text-align: center; color: var(--color-text-muted);">
+              2g (Trace amounts)
+            </td>
+            <td style="text-align: center; color: var(--color-text-muted);">
+              20g Whey Concentrate
+            </td>
+          </tr>
+
+          <!-- Row 2: Added Sugars -->
+          <tr>
+            <td>
+              <strong>Added Sugars</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Glycemic impact</div>
+            </td>
+            <td class="col-highlight" style="text-align: center;">
+              <span class="pill-metric-green">0g (Monk Fruit Sweetened)</span>
+            </td>
+            <td style="text-align: center;">
+              <span class="pill-metric-red">46g Refined Sugar</span>
+            </td>
+            <td style="text-align: center; color: var(--color-text-muted);">
+              14g - 18g Corn Syrup
+            </td>
+          </tr>
+
+          <!-- Row 3: Digestive Feel -->
+          <tr>
+            <td>
+              <strong>Digestive Feel</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Post-drink stomach comfort</div>
+            </td>
+            <td class="col-highlight" style="text-align: center;">
+              <strong>Ultra-Clean & Light</strong>
+            </td>
+            <td style="text-align: center; color: var(--color-text-muted);">
+              Midday Sugar Crash
+            </td>
+            <td style="text-align: center; color: var(--color-text-muted);">
+              Heavy Bloat & Gassy
+            </td>
+          </tr>
+
+          <!-- Row 4: Coffee Quality -->
+          <tr>
+            <td>
+              <strong>Coffee Quality</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Bean origin & roast type</div>
+            </td>
+            <td class="col-highlight" style="text-align: center;">
+              <strong>100% Colombian Supremo</strong>
+            </td>
+            <td style="text-align: center; color: var(--color-text-muted);">
+              Bitter Robusta Extract
+            </td>
+            <td style="text-align: center; color: var(--color-text-muted);">
+              Artificial Flavor Powders
+            </td>
+          </tr>
+
+          <!-- Row 5: Cost Per Serving -->
+          <tr>
+            <td>
+              <strong>Cost Per Serving</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Daily budget economy</div>
+            </td>
+            <td class="col-highlight" style="text-align: center;">
+              <span style="font-size: 1.15rem; font-weight: 800; color: var(--color-espresso-dark);">$1.95</span>
+            </td>
+            <td style="text-align: center; color: var(--color-text-muted);">
+              $6.50+
+            </td>
+            <td style="text-align: center; color: var(--color-text-muted);">
+              $4.25
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Why Vittal beats your daily coffee routine."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "See how we compare against standard coffee house drinks and chalky protein shakes."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table"
+    }
+  ]
+}
+{% endschema %}

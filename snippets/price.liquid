@@ -1,0 +1,25 @@
+{% comment %}
+  Renders a list of product's price (regular, sale)
+  Accepts:
+  - product: {Object} Product Liquid object (optional)
+  - price: {Number} Custom price (optional)
+  - compare_at_price: {Number} Custom compare at price (optional)
+{% endcomment %}
+{% liquid
+  assign target_price = price | default: product.price | default: 3900
+  assign target_compare = compare_at_price | default: product.compare_at_price | default: 4900
+%}
+
+<div class="price-container" style="display: flex; align-items: baseline; gap: 8px;">
+  <span class="price-current" style="font-size: 1.35rem; font-weight: 800; color: var(--color-text);">
+    {{ target_price | money }}
+  </span>
+  {% if target_compare > target_price %}
+    <span class="price-compare" style="font-size: 0.95rem; text-decoration: line-through; color: var(--color-text-subtle);">
+      {{ target_compare | money }}
+    </span>
+    <span class="pill-badge pill-badge-gold" style="font-size: 0.65rem; padding: 2px 8px;">
+      SAVE 20%
+    </span>
+  {% endif %}
+</div>

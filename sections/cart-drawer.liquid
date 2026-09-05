@@ -1,0 +1,53 @@
+<div id="cart-drawer-overlay" class="cart-drawer-overlay"></div>
+
+<div id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+  <!-- Drawer Header -->
+  <div class="drawer-header">
+    <h3>Your Morning Ritual (1)</h3>
+    <button class="drawer-close-btn" data-action="close-cart" aria-label="Close cart">
+      {% render 'icon-close' %}
+    </button>
+  </div>
+
+  <!-- Free Shipping Progress Meter -->
+  <div class="shipping-meter-wrap">
+    <div id="shipping-status-msg">
+      Add <strong>$6.00</strong> more to unlock <strong>Free Express Shipping</strong>!
+    </div>
+    <div class="shipping-progress-bar">
+      <div id="shipping-progress-fill" class="shipping-progress-fill" style="width: 86%;"></div>
+    </div>
+  </div>
+
+  <!-- Cart Line Items -->
+  <div id="drawer-items-list" class="drawer-items-list">
+    <!-- Populated dynamically by theme.js -->
+  </div>
+
+  <!-- Drawer Footer / Checkout -->
+  <div class="drawer-footer">
+    <div class="drawer-subtotal-row">
+      <span>Subtotal</span>
+      <span id="drawer-subtotal-val">$39.00</span>
+    </div>
+    
+    <p style="font-size: 0.775rem; color: var(--color-text-muted); margin-bottom: 16px;">
+      Shipping and taxes calculated at checkout. Subscriptions can be canceled anytime.
+    </p>
+
+    <a href="/checkout" class="btn btn-primary btn-full" style="height: 52px; font-size: 1rem; letter-spacing: 0.02em;">
+      PROCEED TO CHECKOUT &rarr;
+    </a>
+
+    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; font-size: 0.75rem; color: var(--color-text-subtle);">
+      <span>🔒 256-Bit Encrypted Secure Checkout</span>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart Drawer",
+  "settings": []
+}
+{% endschema %}

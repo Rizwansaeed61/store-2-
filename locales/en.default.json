@@ -1,0 +1,67 @@
+{
+  "general": {
+    "accessibility": {
+      "skip_to_content": "Skip to content",
+      "close": "Close",
+      "error": "Error"
+    },
+    "meta": {
+      "tags": "Tags: {{ tags }}",
+      "page": "Page {{ page }}"
+    },
+    "404": {
+      "title": "Page not found",
+      "subtext": "The page you are looking for does not exist.",
+      "link": "Continue shopping"
+    },
+    "newsletter": {
+      "title": "Get 15% off your first order",
+      "caption": "Receive exclusive flavor drops, morning wellness rituals, and cold-brew batches straight to your inbox.",
+      "button_label": "Subscribe",
+      "placeholder": "Enter your email",
+      "success": "Thanks for subscribing to Vittal!",
+      "spam_notice": "No spam. Unsubscribe anytime with 1-click."
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "ADD TO CART",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "quantity": {
+        "label": "Quantity",
+        "input_label": "Quantity for {{ product }}",
+        "increase": "Increase quantity for {{ product }}",
+        "decrease": "Decrease quantity for {{ product }}"
+      },
+      "price": {
+        "from_price_html": "From {{ price }}",
+        "regular_price": "Regular price",
+        "sale_price": "Sale price",
+        "unit_price": "Unit price"
+      },
+      "subscribe_save": "Subscribe & Save 20%",
+      "one_time": "One-time purchase",
+      "servings": "Servings",
+      "in_stock": "In Stock — Ships within 24 hours"
+    }
+  },
+  "sections": {
+    "cart": {
+      "title": "Your Morning Ritual Cart",
+      "empty": "Your cart is empty",
+      "continue_shopping": "Start Shopping",
+      "subtotal": "Subtotal",
+      "checkout": "Proceed to Checkout",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes and shipping calculated at checkout",
+      "free_shipping_remaining_html": "Add <strong>{{ remaining }}</strong> more to unlock <strong>Free Express Shipping</strong>!",
+      "free_shipping_eligible": "🎉 You've unlocked Free Express Shipping!"
+    },
+    "collection": {
+      "filter_by_label": "Filter by:",
+      "sort_by_label": "Sort by:",
+      "products_count": "{{ count }} Products",
+      "empty": "No products found in this collection."
+    }
+  }
+}

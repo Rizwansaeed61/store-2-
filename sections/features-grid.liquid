@@ -1,0 +1,87 @@
+<section class="features-section" id="benefits">
+  <div class="container">
+    <div class="section-header">
+      <span class="text-uppercase-label">● THE VITTAL STANDARD</span>
+      <h2>{{ section.settings.title | default: 'A functional morning brew meticulously engineered.' }}</h2>
+      <p>{{ section.settings.subtitle | default: 'Clean, ready-to-mix ritual supercharged with a restorative blend of 20g clean plant protein for an elevated energy boost that sustains without the chalky stomach distress.' }}</p>
+    </div>
+
+    <div class="features-grid">
+      <!-- Card 1 -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <h3>18-Hour Slow Brew</h3>
+        <p>Cold-dripped Colombian Supremo beans to eliminate crisp acidity, leaving a smooth, velvety profile of cocoa and toasted almond notes.</p>
+        <span class="feature-tag">SILK SMOOTH & LOW ACIDITY</span>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <h3>20g Pure Plant Isolate</h3>
+        <p>Organic cold-pressed yellow pea and sprouted brown rice isolate delivers all 9 essential amino acids without gut bloating or chalkiness.</p>
+        <span class="feature-tag">FAST DIGESTION • ZERO BLOAT</span>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+          </svg>
+        </div>
+        <h3>Sustained Brain Fuel</h3>
+        <p>Natural caffeine gently buffered by restorative micronutrients so your focus stays locked in for 6+ hours with zero jitters or afternoon crashes.</p>
+        <span class="feature-tag">COGNITIVE CLARITY</span>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="feature-card">
+        <div class="feature-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <h3>Sweetened by Plants</h3>
+        <p>Zero erythritol, zero sucralose, zero chemical bitterness. Naturally rounded with pure monk fruit extract for a silky clean finish.</p>
+        <span class="feature-tag">ZERO ADDED SUGARS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "A functional morning brew meticulously engineered."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Clean, ready-to-mix ritual supercharged with a restorative blend of 20g clean plant protein for an elevated energy boost that sustains without the chalky stomach distress."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features Grid"
+    }
+  ]
+}
+{% endschema %}

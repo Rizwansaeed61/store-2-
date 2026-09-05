@@ -1,0 +1,50 @@
+<section class="cta-banner-section">
+  <div class="container">
+    <div class="cta-banner-box">
+      <span class="pill-badge pill-badge-gold">● UPGRADE YOUR MORNING RITUAL</span>
+      <h2>{{ section.settings.heading | default: 'Ready to feel clean energy from real coffee?' }}</h2>
+      <p>{{ section.settings.subheading | default: 'Join over 1,400+ professionals and athletes starting their mornings with 20g clean plant protein, Colombian cold brew, and zero artificial sweeteners.' }}</p>
+      
+      <a href="/products/vittal-protein-iced-coffee" class="btn btn-gold">
+        {{ section.settings.btn_label | default: 'Buy Vittal — Save 20%' }} &rarr;
+      </a>
+
+      <div class="cta-guarantees">
+        <span>🚚 Free Express Shipping Over $45</span>
+        <span>🛡️ 30-Day Money-Back Guarantee</span>
+        <span>⚡ Ships Within 24 Hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ready to feel clean energy from real coffee?"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Join over 1,400+ professionals and athletes starting their mornings with 20g clean plant protein, Colombian cold brew, and zero artificial sweeteners."
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "Buy Vittal — Save 20%"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Banner"
+    }
+  ]
+}
+{% endschema %}

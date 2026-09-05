@@ -1,0 +1,133 @@
+<section class="hero-section">
+  <div class="container">
+    <!-- Meta Top Bar -->
+    <div class="hero-meta-bar">
+      <div class="hero-rating-wrap">
+        {% render 'rating-stars', rating: 4.9, count: 1420 %}
+      </div>
+      <div class="hero-micro-tags">
+        <span>⚡ 10-15s Prep (Instant)</span>
+        <span>🌱 20g Clean Protein</span>
+        <span>🔬 Lab Tested Purity</span>
+      </div>
+    </div>
+
+    <!-- Hero Content Grid -->
+    <div class="hero-grid">
+      <!-- Left Column: Copy & CTAs -->
+      <div class="hero-content">
+        <span class="text-uppercase-label">● 100% FUNCTIONAL COLD BREW RITUAL</span>
+        
+        <h1 class="hero-title">
+          {{ section.settings.heading_line1 | default: 'Clean Fuel.' }}<br>
+          {{ section.settings.heading_line2 | default: 'Real Coffee.' }}<br>
+          <span class="serif-italic">{{ section.settings.heading_italic | default: 'Zero Compromise.' }}</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          {{ section.settings.subtitle | default: 'Crafted with 100% single-origin Colombian Arabica coffee, ultra-pure 18-hour cold brew, and premium 20g plant protein isolate. Naturally light, fast-dissolving, no grit, zero chemicals.' }}
+        </p>
+
+        <!-- Nutrition Metric Cards -->
+        <div class="hero-stats-row">
+          <div class="hero-stat-card">
+            <div class="hero-stat-value">20<span style="font-size: 1rem;">g</span></div>
+            <div class="hero-stat-label">Plant Protein / Serving</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-value">0<span style="font-size: 1rem;">g</span></div>
+            <div class="hero-stat-label">Added Sugar (Monk Fruit)</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-value">120<span style="font-size: 1rem;">mg</span></div>
+            <div class="hero-stat-label">Natural Arabica Caffeine</div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="hero-cta-group">
+          <a href="/products/vittal-protein-iced-coffee" class="btn btn-primary">
+            {{ section.settings.cta_text | default: 'Shop Protein Iced Coffee' }} &rarr;
+          </a>
+          <a href="#compare" class="btn btn-secondary">
+            Compare Ingredients
+          </a>
+        </div>
+
+        <!-- Micro Shipping Notice -->
+        <div class="hero-shipping-notice">
+          <span>🚚 Free US Standard shipping on $45+. Order today, ships within 24 hours.</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Hero Visual Combo -->
+      <div class="hero-visual-card">
+        <!-- Floating Badges -->
+        <div class="hero-floating-badge" style="top: 20px; left: 24px;">
+          <span>🌱 100% Vegan</span>
+        </div>
+        <div class="hero-floating-badge" style="top: 20px; right: 24px;">
+          <span>⚡ 20g Protein</span>
+        </div>
+        <div class="hero-floating-badge" style="bottom: 24px; left: 24px;">
+          <span>⏱️ 18-Hour Steep</span>
+        </div>
+        <div class="hero-floating-badge" style="bottom: 24px; right: 24px;">
+          <span>🧠 Sustained Brain Fuel</span>
+        </div>
+
+        <div class="hero-visual-combo">
+          <div style="flex: 1.2; max-width: 260px;">
+            <img src="{{ 'vittal-pouch.svg' | asset_url }}" alt="Vittal Protein Iced Coffee Pouch" style="width: 100%;" />
+          </div>
+          <div style="flex: 0.8; max-width: 170px;">
+            <img src="{{ 'vittal-glass.svg' | asset_url }}" alt="Vittal Iced Cold Brew Glass" style="width: 100%;" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Clean Fuel."
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Real Coffee."
+    },
+    {
+      "type": "text",
+      "id": "heading_italic",
+      "label": "Heading Italic Accent",
+      "default": "Zero Compromise."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Crafted with 100% single-origin Colombian Arabica coffee, ultra-pure 18-hour cold brew, and premium 20g plant protein isolate. Naturally light, fast-dissolving, no grit, zero chemicals."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "Shop Protein Iced Coffee"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

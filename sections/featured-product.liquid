@@ -1,0 +1,152 @@
+<section class="featured-product-section" id="ingredients">
+  <div class="container">
+    <div class="buy-box-card">
+      <!-- Left: Product Gallery -->
+      <div class="product-gallery-column">
+        <div class="product-gallery-main">
+          <img 
+            id="main-gallery-image" 
+            src="{{ 'vittal-pouch.svg' | asset_url }}" 
+            alt="Vittal Protein Iced Coffee" 
+            style="max-height: 380px; object-fit: contain;"
+          />
+        </div>
+        
+        <div class="product-gallery-thumbs">
+          <div class="thumb-item active" data-img-src="{{ 'vittal-pouch.svg' | asset_url }}">
+            <img src="{{ 'vittal-pouch.svg' | asset_url }}" alt="Pouch Front" style="height: 60px; margin: 0 auto;" />
+          </div>
+          <div class="thumb-item" data-img-src="{{ 'vittal-glass.svg' | asset_url }}">
+            <img src="{{ 'vittal-glass.svg' | asset_url }}" alt="Iced Cold Brew Glass" style="height: 60px; margin: 0 auto;" />
+          </div>
+          <div class="thumb-item" data-img-src="{{ 'vittal-shaker.svg' | asset_url }}">
+            <img src="{{ 'vittal-shaker.svg' | asset_url }}" alt="Barista Shaker Tumbler" style="height: 60px; margin: 0 auto;" />
+          </div>
+          <div class="thumb-item" data-img-src="{{ 'vittal-bundle.svg' | asset_url }}">
+            <img src="{{ 'vittal-bundle.svg' | asset_url }}" alt="Bundle Lineup" style="height: 60px; margin: 0 auto;" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Product Information & Buy Form -->
+      <div class="product-info-column">
+        <div class="product-rating-line">
+          {% render 'rating-stars', rating: 4.9, count: 1420 %}
+        </div>
+
+        <h2 class="product-title">
+          Vittal Protein Iced Coffee
+          <span class="product-servings-badge">20 Servings</span>
+        </h2>
+
+        <p class="product-desc">
+          Full 20-serving pouch. Mixes instantly in cold water or plant milk. Ultra-pure Colombian Supremo cold brew infused with 20g silky plant protein isolate with zero chalk and less than 1.5g net carbs.
+        </p>
+
+        <!-- Spec Pills Grid -->
+        <div class="product-specs-pills">
+          <div class="spec-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            <span>Local Colombian Roast</span>
+          </div>
+          <div class="spec-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>Clean & Simple Sourced</span>
+          </div>
+          <div class="spec-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span>Fast Express Delivery</span>
+          </div>
+          <div class="spec-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>3rd-Party Lab Certified</span>
+          </div>
+        </div>
+
+        <!-- Subscription vs One-Time Radio Selector -->
+        <div class="purchase-options">
+          <!-- Option 1: Subscribe & Save 20% -->
+          <div class="purchase-option-card active" data-price="39.00" data-variant="Subscribe & Save 20%">
+            <div class="option-header">
+              <label class="option-radio-label">
+                <input type="radio" name="purchase-type" checked style="accent-color: var(--color-espresso-dark);" />
+                <span>Subscribe & Save 20%</span>
+                <span class="pill-badge pill-badge-dark" style="font-size: 0.65rem; padding: 2px 8px;">POPULAR</span>
+              </label>
+              <div class="option-price-box">
+                <span class="option-price-original">$49.00</span>
+                <span class="option-price-main">$39.00</span>
+                <span style="font-size: 0.75rem; color: var(--color-text-muted);">/ pouch</span>
+              </div>
+            </div>
+            <div class="option-details">
+              Delivered free every 30 days. Pause, swap flavors, or cancel anytime with 1-click.
+            </div>
+          </div>
+
+          <!-- Option 2: One-Time Purchase -->
+          <div class="purchase-option-card" data-price="49.00" data-variant="One-Time Purchase">
+            <div class="option-header">
+              <label class="option-radio-label">
+                <input type="radio" name="purchase-type" style="accent-color: var(--color-espresso-dark);" />
+                <span>One-Time Delivery</span>
+              </label>
+              <div class="option-price-box">
+                <span class="option-price-main">$49.00</span>
+              </div>
+            </div>
+            <div class="option-details">
+              Single 20-serving pouch without recurring commitment.
+            </div>
+          </div>
+        </div>
+
+        <!-- Stock Status Notice -->
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8125rem; font-weight: 600; color: #2E7D32; margin-bottom: 18px;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #2E7D32;"></span>
+          <span>In Stock — Order today to ship within 24 hours</span>
+        </div>
+
+        <!-- Buy Action Row -->
+        <div class="buy-actions-row">
+          <div class="qty-selector qty-selector-group">
+            <button class="qty-btn" data-qty-action="minus" aria-label="Decrease quantity">−</button>
+            <input class="qty-input" id="product-quantity" type="text" value="1" readonly />
+            <button class="qty-btn" data-qty-action="plus" aria-label="Increase quantity">+</button>
+          </div>
+
+          <button 
+            id="main-atc-button"
+            class="btn btn-primary add-to-cart-btn" 
+            data-action="add-to-cart"
+            data-product-title="Vittal Protein Iced Coffee"
+            data-product-price="39.00"
+            data-product-variant="Subscribe & Save 20%"
+            data-product-image="{{ 'vittal-pouch.svg' | asset_url }}"
+          >
+            <span>ADD TO CART &mdash; <span class="atc-dynamic-price">$39.00</span></span>
+          </button>
+        </div>
+
+        <!-- Micro Guarantees -->
+        <div class="micro-guarantees-row">
+          <span>🛡️ 30-Day Money-Back Guarantee</span>
+          <span>🚚 Free Express Delivery</span>
+          <span>🔒 256-Bit SSL Checkout</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Product Buy Box",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Featured Product Buy Box"
+    }
+  ]
+}
+{% endschema %}

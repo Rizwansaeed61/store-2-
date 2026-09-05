@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pouchLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b2316"/>
+      <stop offset="100%" stop-color="#1c0f09"/>
+    </linearGradient>
+    <linearGradient id="pouchCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f311e"/>
+      <stop offset="100%" stop-color="#23140c"/>
+    </linearGradient>
+    <linearGradient id="pouchRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#553a25"/>
+      <stop offset="100%" stop-color="#2b1a10"/>
+    </linearGradient>
+    <filter id="bShadow">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#140b05" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="250" cy="370" rx="180" ry="16" fill="#1b1008" opacity="0.25"/>
+
+  <!-- Left Pouch (Mocha) -->
+  <g transform="translate(60, 40) rotate(-8 100 200)" filter="url(#bShadow)">
+    <path d="M40,50 L160,50 L170,70 L175,320 C175,335 160,345 135,348 L65,348 C40,345 25,335 25,320 L30,70 Z" fill="url(#pouchLeft)"/>
+    <rect x="45" y="100" width="110" height="170" rx="8" fill="#f8f4ec"/>
+    <text x="100" y="130" font-family="'Georgia', serif" font-size="16" font-weight="900" fill="#201610" text-anchor="middle">Vittal.</text>
+    <text x="100" y="145" font-family="-apple-system, sans-serif" font-size="6" font-weight="700" fill="#8c7a6b" text-anchor="middle">MOCHA PROTEIN</text>
+    <rect x="58" y="180" width="84" height="24" rx="4" fill="#301b10"/>
+    <text x="100" y="196" font-family="-apple-system, sans-serif" font-size="8" font-weight="700" fill="#f6dec3" text-anchor="middle">20g PROTEIN</text>
+  </g>
+
+  <!-- Right Pouch (Vanilla Bean) -->
+  <g transform="translate(240, 40) rotate(8 100 200)" filter="url(#bShadow)">
+    <path d="M40,50 L160,50 L170,70 L175,320 C175,335 160,345 135,348 L65,348 C40,345 25,335 25,320 L30,70 Z" fill="url(#pouchRight)"/>
+    <rect x="45" y="100" width="110" height="170" rx="8" fill="#fcf9f2"/>
+    <text x="100" y="130" font-family="'Georgia', serif" font-size="16" font-weight="900" fill="#201610" text-anchor="middle">Vittal.</text>
+    <text x="100" y="145" font-family="-apple-system, sans-serif" font-size="6" font-weight="700" fill="#8c7a6b" text-anchor="middle">VANILLA BEAN</text>
+    <rect x="58" y="180" width="84" height="24" rx="4" fill="#382518"/>
+    <text x="100" y="196" font-family="-apple-system, sans-serif" font-size="8" font-weight="700" fill="#f6dec3" text-anchor="middle">20g PROTEIN</text>
+  </g>
+
+  <!-- Center Pouch (Original Cold Brew) -->
+  <g transform="translate(150, 15)" filter="url(#bShadow)">
+    <path d="M40,40 L160,40 L170,62 L180,340 C180,358 160,370 135,372 L65,372 C40,370 20,358 20,340 L30,62 Z" fill="url(#pouchCenter)"/>
+    <rect x="42" y="90" width="116" height="195" rx="10" fill="#fdfbf7"/>
+    <rect x="58" y="105" width="84" height="15" rx="7" fill="#201610"/>
+    <text x="100" y="115" font-family="-apple-system, sans-serif" font-size="6.5" font-weight="700" fill="#f4ebd9" text-anchor="middle">COLOMBIAN SUPREMO</text>
+    <text x="100" y="148" font-family="'Georgia', serif" font-size="22" font-weight="900" fill="#201610" text-anchor="middle">Vittal<tspan fill="#c59964">.</tspan></text>
+    <text x="100" y="165" font-family="-apple-system, sans-serif" font-size="7" font-weight="700" fill="#8c7a6b" text-anchor="middle">ORIGINAL COLD BREW</text>
+    <rect x="52" y="195" width="96" height="30" rx="6" fill="#f6f1e8" stroke="#decbb8" stroke-width="1"/>
+    <text x="100" y="215" font-family="-apple-system, sans-serif" font-size="14" font-weight="900" fill="#201610" text-anchor="middle">20g • 0g</text>
+    <text x="100" y="248" font-family="-apple-system, sans-serif" font-size="8" font-weight="800" fill="#c59964" text-anchor="middle">MASTER TRIO</text>
+  </g>
+
+  <!-- Value Badge -->
+  <g transform="translate(340, 20)">
+    <circle cx="35" cy="35" r="32" fill="#c59964" stroke="#ffffff" stroke-width="2"/>
+    <text x="35" y="30" font-family="-apple-system, sans-serif" font-size="10" font-weight="900" fill="#201610" text-anchor="middle">SAVE</text>
+    <text x="35" y="46" font-family="-apple-system, sans-serif" font-size="14" font-weight="900" fill="#201610" text-anchor="middle">$28</text>
+  </g>
+</svg>

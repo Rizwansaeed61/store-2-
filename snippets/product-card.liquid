@@ -1,0 +1,89 @@
+{% comment %}
+  Renders a product card for collection & recommendations
+  Accepts:
+  - product: {Object} Shopify Product Object (optional)
+  - title: {String}
+  - price: {Number}
+  - compare_price: {Number}
+  - badge: {String} e.g. "BESTSELLER", "NEW FLAVOR", "OUT OF STOCK"
+  - image: {String} asset filename
+  - category: {String}
+  - tag1: {String}
+  - tag2: {String}
+  - is_sold_out: {Boolean}
+{% endcomment %}
+
+{% liquid
+  assign card_title = title | default: product.title | default: "Vittal Protein Iced Coffee"
+  assign card_price = price | default: product.price | default: 39.00
+  assign card_compare = compare_price | default: product.compare_at_price | default: 49.00
+  assign card_badge = badge | default: "BESTSELLER"
+  assign card_image = image | default: 'vittal-pouch.svg'
+  assign card_category = category | default: 'cold-brew'
+%}
+
+<div class="product-card" data-category="{{ card_category }}">
+  <div class="card-image-wrap">
+    {% if card_badge != blank %}
+      <span class="card-badge {% if is_sold_out %}sold-out{% endif %}">
+        {{ card_badge }}
+      </span>
+    {% endif %}
+    
+    <a href="/products/vittal-protein-iced-coffee" style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
+      <img 
+        src="{{ card_image | asset_url | default: card_image }}" 
+        alt="{{ card_title }}" 
+        style="max-height: 220px; object-fit: contain; transition: transform 0.3s ease;"
+        class="card-img-hover"
+      />
+    </a>
+  </div>
+
+  <div class="card-content">
+    <div class="card-rating-row">
+      {% render 'rating-stars', rating: 4.9, count: 1420 %}
+    </div>
+
+    <h3 class="card-title">
+      <a href="/products/vittal-protein-iced-coffee">{{ card_title }}</a>
+      <span class="product-servings-badge">20 Servings</span>
+    </h3>
+
+    <div class="card-price-row">
+      <span class="card-price-current">${{ card_price | round: 2 }}</span>
+      {% if card_compare > card_price %}
+        <span class="card-price-compare">${{ card_compare | round: 2 }}</span>
+        <span class="pill-badge pill-badge-gold" style="font-size: 0.65rem; padding: 2px 8px;">SAVE 20%</span>
+      {% endif %}
+    </div>
+
+    <div class="card-specs-row">
+      <div class="card-spec-tag">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>{{ tag1 | default: '20g Plant Protein' }}</span>
+      </div>
+      <div class="card-spec-tag">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>{{ tag2 | default: '120mg Natural Caffeine' }}</span>
+      </div>
+    </div>
+
+    {% if is_sold_out %}
+      <button class="btn btn-secondary btn-full" disabled style="opacity: 0.6; cursor: not-allowed;">
+        {{ 'products.product.sold_out' | t | default: 'OUT OF STOCK' }}
+      </button>
+    {% else %}
+      <button 
+        class="btn btn-primary btn-full" 
+        data-action="add-to-cart"
+        data-product-title="{{ card_title }}"
+        data-product-price="{{ card_price }}"
+        data-product-variant="Subscribe & Save 20%"
+        data-product-image="{{ card_image }}"
+      >
+        <span>ADD TO CART — ${{ card_price | round: 2 }}</span>
+      </button>
+    {% endif %}
+  </div>
+</div>

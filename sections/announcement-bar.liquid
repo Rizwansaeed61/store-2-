@@ -1,0 +1,41 @@
+{% if section.settings.show_announcement %}
+  <div class="announcement-bar">
+    <div class="container">
+      <span>{{ section.settings.text }}</span>
+      {% if section.settings.link != blank and section.settings.link_text != blank %}
+        <a href="{{ section.settings.link }}">{{ section.settings.link_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show Announcement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement Text",
+      "default": "FREE SHIPPING ON ORDERS OVER $45 ⚡"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "Claim Offer"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,186 @@
+<div class="collection-page">
+  <div class="container">
+    <!-- Breadcrumbs -->
+    <div style="font-size: 0.8125rem; color: var(--color-text-muted); margin: 24px 0 12px;">
+      <a href="/">Home</a> &rsaquo; <a href="/collections/all">Shop</a> &rsaquo; <span style="color: var(--color-text);">Functional Coffee & Protein Rituals</span>
+    </div>
+
+    <!-- Collection Hero Banner -->
+    <div class="collection-hero">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+        <span class="text-uppercase-label">● 100% SINGLE-ORIGIN COLOMBIAN BREW</span>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8125rem; font-weight: 700;">
+          <span style="color: var(--color-accent-gold);">★★★★★</span>
+          <span>4.87 / 5.0 (3,800+ Verified Morning Drinkers)</span>
+        </div>
+      </div>
+
+      <h1>Functional Coffee &amp; Protein Rituals</h1>
+      
+      <p style="color: var(--color-text-muted); max-width: 760px; font-size: 1.05rem;">
+        Replace slow, sleep-inducing morning routines with cold brews supercharged with 20g of silky filtered protein isolates, zero artificial grit, and clean, steady energy that honors your morning standard.
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div class="collection-pills-nav">
+        <button class="category-pill active" data-category="all">All Products (8)</button>
+        <button class="category-pill" data-category="cold-brew">Cold Brew Coffee</button>
+        <button class="category-pill" data-category="rtd">Ready-To-Drink Cans</button>
+        <button class="category-pill" data-category="bundles">Bundles &amp; Subscriptions</button>
+        <button class="category-pill" data-category="gear">Brew Accessories</button>
+        <button class="category-pill" data-category="special">Special Roasting</button>
+      </div>
+
+      <!-- Collection Toolbar -->
+      <div class="collection-toolbar">
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <span class="pill-badge pill-badge-dark" style="cursor: pointer;">
+            ⚡ Filters (4)
+          </span>
+          <span class="pill-badge pill-badge-subtle">Gluten / Vegan Whey &times;</span>
+          <span class="pill-badge pill-badge-subtle">French Drip &times;</span>
+          <span class="pill-badge pill-badge-subtle">Zero Sugar &times;</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 0.875rem; font-weight: 600;">
+          <span>Sort by:</span>
+          <select style="border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 6px 12px; background: #fff;">
+            <option>Featured Rituals</option>
+            <option>Best Selling</option>
+            <option>Caffeine: High to Low</option>
+            <option>Price: Low to High</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid">
+        <!-- Product 1 -->
+        {% render 'product-card',
+          title: "Vittal Protein Iced Coffee",
+          price: 39.00,
+          compare_price: 49.00,
+          badge: "BESTSELLER",
+          image: "vittal-pouch.svg",
+          category: "cold-brew",
+          tag1: "20g Plant Protein",
+          tag2: "120mg Natural Caffeine",
+          is_sold_out: false
+        %}
+
+        <!-- Product 2 -->
+        {% render 'product-card',
+          title: "Vittal Mocha Protein Cold Brew",
+          price: 39.00,
+          compare_price: 49.00,
+          badge: "NEW FLAVOR",
+          image: "vittal-pouch.svg",
+          category: "cold-brew",
+          tag1: "Rich Dark Cocoa",
+          tag2: "Hydration Electrolytes",
+          is_sold_out: false
+        %}
+
+        <!-- Product 3 -->
+        {% render 'product-card',
+          title: "Vittal Vanilla Bean Cold Brew",
+          price: 39.00,
+          compare_price: 49.00,
+          badge: "OUT OF STOCK",
+          image: "vittal-pouch.svg",
+          category: "cold-brew",
+          tag1: "Madagascar Vanilla",
+          tag2: "Gut Comfort Fiber",
+          is_sold_out: true
+        %}
+
+        <!-- Quiz Promo Card embedded in grid -->
+        <div class="quiz-promo-card">
+          <div class="quiz-promo-content">
+            <span class="pill-badge pill-badge-gold" style="margin-bottom: 12px;">MATCH YOUR MORNING</span>
+            <h3>Not sure which roast fits your morning?</h3>
+            <p>Take the 60-Second Ritual Quiz. We'll assess your caffeine sensitivity, workout schedule, and taste profile to recommend your perfect stack.</p>
+            <a href="#quiz" class="btn btn-gold" style="margin-top: 20px;">
+              Take the 60-Sec Quiz &rarr;
+            </a>
+          </div>
+          <div style="font-size: 5rem; opacity: 0.8;">
+            ☕
+          </div>
+        </div>
+
+        <!-- Product 4: Master Trio Bundle -->
+        {% render 'product-card',
+          title: "Vittal Master Trio Bundle",
+          price: 89.00,
+          compare_price: 117.00,
+          badge: "BEST VALUE • 3-PACK",
+          image: "vittal-bundle.svg",
+          category: "bundles",
+          tag1: "All 3 Core Flavors",
+          tag2: "$1.48 Per Serving",
+          is_sold_out: false
+        %}
+
+        <!-- Product 5: RTD Can 12-Pack -->
+        {% render 'product-card',
+          title: "Vittal RTD Chilled Cold Brew",
+          price: 42.00,
+          compare_price: 52.00,
+          badge: "RTD READY CAN",
+          image: "vittal-can.svg",
+          category: "rtd",
+          tag1: "12 Cans (12 fl oz)",
+          tag2: "Grab & Go Chilled",
+          is_sold_out: false
+        %}
+
+        <!-- Product 6: Decaf -->
+        {% render 'product-card',
+          title: "Vittal Colombian Decaf Protein",
+          price: 39.00,
+          compare_price: 49.00,
+          badge: "OUT OF STOCK",
+          image: "vittal-pouch.svg",
+          category: "special",
+          tag1: "Swiss Water Decaf",
+          tag2: "Night-Time Recovery",
+          is_sold_out: true
+        %}
+
+        <!-- Product 7: Tumbler -->
+        {% render 'product-card',
+          title: "Vittal Barista Shaker Tumbler",
+          price: 24.00,
+          compare_price: 30.00,
+          badge: "GEAR & SHAKER",
+          image: "vittal-shaker.svg",
+          category: "gear",
+          tag1: "Double-Wall Insulated",
+          tag2: "Leak-Proof Seal",
+          is_sold_out: false
+        %}
+
+        <!-- Product 8: Salted Caramel -->
+        {% render 'product-card',
+          title: "Salted Caramel Macchiato",
+          price: 42.00,
+          compare_price: 49.00,
+          badge: "LIMITED SEASONAL",
+          image: "vittal-pouch.svg",
+          category: "special",
+          tag1: "Pink Himalayan Salt",
+          tag2: "Creamy Golden Aroma",
+          is_sold_out: false
+        %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": []
+}
+{% endschema %}

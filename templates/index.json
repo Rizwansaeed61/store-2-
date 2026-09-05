@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "heading_line1": "Clean Fuel.",
+        "heading_line2": "Real Coffee.",
+        "heading_italic": "Zero Compromise.",
+        "subtitle": "Crafted with 100% single-origin Colombian Arabica coffee, ultra-pure 18-hour cold brew, and premium 20g plant protein isolate. Naturally light, fast-dissolving, no grit, zero chemicals.",
+        "cta_text": "Shop Protein Iced Coffee"
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {}
+    },
+    "features": {
+      "type": "features-grid",
+      "settings": {
+        "title": "A functional morning brew meticulously engineered.",
+        "subtitle": "Fresh, ready-to-mix ritual supercharged with a restorative blend of 20g clean plant protein for an elevated energy boost that sustains without the chalky stomach distress."
+      }
+    },
+    "featured_product": {
+      "type": "featured-product",
+      "settings": {}
+    },
+    "comparison": {
+      "type": "comparison-table",
+      "settings": {
+        "title": "Why Vittal beats your daily coffee routine.",
+        "subtitle": "See how we compare against standard coffee house drinks and chalky protein shakes."
+      }
+    },
+    "story": {
+      "type": "story-section",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {
+        "title": "Everything you need to know."
+      }
+    },
+    "cta_banner": {
+      "type": "cta-banner",
+      "settings": {
+        "heading": "Ready to feel clean energy from real coffee?",
+        "subheading": "Join over 1,400+ professionals and athletes starting their mornings with 20g clean plant protein, Colombian cold brew, and zero artificial sweeteners.",
+        "btn_label": "Buy Vittal — Save 20%"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "features",
+    "featured_product",
+    "comparison",
+    "story",
+    "testimonials",
+    "faq",
+    "cta_banner"
+  ]
+}

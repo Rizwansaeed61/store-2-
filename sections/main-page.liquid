@@ -1,0 +1,17 @@
+<div class="page-section" style="padding: 64px 0 96px;">
+  <div class="container container-narrow">
+    <div class="section-header" style="text-align: left; margin-bottom: 32px;">
+      <h1 style="font-size: 2.75rem;">{{ page.title | default: 'About Vittal' }}</h1>
+    </div>
+    <div class="rte" style="line-height: 1.8; font-size: 1.05rem; color: var(--color-text);">
+      {{ page.content | default: '<p>At Vittal, we believe morning rituals should empower high performance without health compromises. Our 100% single-origin Colombian cold brew combines artisan coffee craftsmanship with pure plant protein isolates.</p>' }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Page",
+  "settings": []
+}
+{% endschema %}

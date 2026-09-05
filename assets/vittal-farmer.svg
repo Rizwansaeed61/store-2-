@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bce0eb"/>
+      <stop offset="60%" stop-color="#e2f1f5"/>
+      <stop offset="100%" stop-color="#f5ede3"/>
+    </linearGradient>
+    <linearGradient id="mountainsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d5236"/>
+      <stop offset="50%" stop-color="#1f3b26"/>
+      <stop offset="100%" stop-color="#182d1e"/>
+    </linearGradient>
+    <linearGradient id="coffeeBush" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a5a35"/>
+      <stop offset="100%" stop-color="#15361e"/>
+    </linearGradient>
+    <linearGradient id="hatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8efe0"/>
+      <stop offset="70%" stop-color="#d9c49f"/>
+      <stop offset="100%" stop-color="#af966f"/>
+    </linearGradient>
+    <linearGradient id="skinTone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c98a58"/>
+      <stop offset="100%" stop-color="#9a5a2e"/>
+    </linearGradient>
+    <filter id="sceneGlow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Sky background -->
+  <rect x="0" y="0" width="600" height="450" fill="url(#skyGrad)"/>
+
+  <!-- Andean Mountain Ridges -->
+  <path d="M0,180 Q140,90 280,160 T600,120 L600,450 L0,450 Z" fill="#678a73" opacity="0.45"/>
+  <path d="M0,210 Q200,140 400,200 T600,160 L600,450 L0,450 Z" fill="url(#mountainsGrad)" opacity="0.75"/>
+  <path d="M-50,260 Q150,210 350,250 T650,210 L650,450 L-50,450 Z" fill="url(#mountainsGrad)"/>
+
+  <!-- Coffee Plants & Foliage in Foreground -->
+  <g fill="url(#coffeeBush)">
+    <circle cx="50" cy="400" r="120"/>
+    <circle cx="180" cy="420" r="140"/>
+    <circle cx="480" cy="380" r="160"/>
+    <circle cx="380" cy="420" r="130"/>
+    <circle cx="580" cy="410" r="150"/>
+  </g>
+
+  <!-- Ripe Red Coffee Cherries -->
+  <g fill="#bf1e2e" stroke="#8b0e1b" stroke-width="1">
+    <circle cx="410" cy="330" r="8"/>
+    <circle cx="422" cy="336" r="7"/>
+    <circle cx="415" cy="346" r="8"/>
+    <circle cx="440" cy="360" r="8"/>
+    <circle cx="452" cy="365" r="7"/>
+    <circle cx="360" cy="380" r="8"/>
+    <circle cx="372" cy="388" r="7"/>
+    <circle cx="355" cy="395" r="8"/>
+    <circle cx="480" cy="340" r="8"/>
+    <circle cx="492" cy="348" r="7"/>
+    <circle cx="485" cy="358" r="8"/>
+  </g>
+
+  <!-- Coffee Farmer Figure -->
+  <g filter="url(#sceneGlow)">
+    <!-- Blue Chambray Plaid Shirt -->
+    <path d="M120,320 Q160,250 200,240 Q250,240 290,290 L330,450 L70,450 Z" fill="#3c5f78"/>
+    <path d="M170,245 L205,330 L240,245" fill="#e9f1f5" opacity="0.9"/>
+    <!-- Collar and button line -->
+    <line x1="205" y1="245" x2="205" y2="400" stroke="#1d3445" stroke-width="2.5"/>
+    <circle cx="205" cy="275" r="3" fill="#ffffff"/>
+    <circle cx="205" cy="305" r="3" fill="#ffffff"/>
+    <circle cx="205" cy="335" r="3" fill="#ffffff"/>
+
+    <!-- Neck & Face -->
+    <path d="M185,225 L185,250 Q205,258 225,250 L225,225 Z" fill="url(#skinTone)"/>
+    <ellipse cx="205" cy="210" rx="35" ry="40" fill="url(#skinTone)"/>
+
+    <!-- Warm Smiling Expression -->
+    <!-- Eyes -->
+    <path d="M188,202 Q196,198 202,204" stroke="#482512" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M214,202 Q220,198 226,204" stroke="#482512" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <!-- Laugh wrinkles -->
+    <path d="M183,203 Q180,207 182,212" stroke="#6d391d" stroke-width="1" fill="none"/>
+    <path d="M231,203 Q234,207 232,212" stroke="#6d391d" stroke-width="1" fill="none"/>
+    <!-- Nose -->
+    <path d="M206,206 L208,218 Q204,222 201,220" stroke="#6d391d" stroke-width="1.8" fill="none"/>
+    <!-- Smile & Teeth -->
+    <path d="M192,228 Q206,242 222,228 Z" fill="#ffffff"/>
+    <path d="M190,227 Q206,244 224,227" stroke="#6d391d" stroke-width="2" fill="none"/>
+
+    <!-- Traditional Sombrero Vueltiao (Wide-Brim Colombian Hat) -->
+    <!-- Hat Crown -->
+    <path d="M165,185 Q170,120 205,120 Q240,120 245,185 Z" fill="url(#hatGrad)"/>
+    <path d="M168,172 L242,172" stroke="#2a180e" stroke-width="4"/>
+    <path d="M172,160 L238,160" stroke="#2a180e" stroke-width="2"/>
+    <!-- Hat Brim Curve -->
+    <ellipse cx="205" cy="186" rx="72" ry="18" fill="url(#hatGrad)" stroke="#b29b74" stroke-width="2"/>
+    <ellipse cx="205" cy="186" rx="72" ry="18" fill="none" stroke="#2a180e" stroke-width="2" stroke-dasharray="4,3"/>
+
+    <!-- Hands Gently Holding Coffee Branch -->
+    <g fill="url(#skinTone)">
+      <ellipse cx="280" cy="340" rx="16" ry="22" transform="rotate(-25 280 340)"/>
+      <ellipse cx="300" cy="335" rx="14" ry="20" transform="rotate(20 300 335)"/>
+    </g>
+  </g>
+
+  <!-- Branch in hands -->
+  <path d="M260,350 Q290,320 340,335" stroke="#4d2f1b" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Fresh Red Cherries in Hand -->
+  <g fill="#d81b2c" stroke="#870a16" stroke-width="1">
+    <circle cx="288" cy="325" r="7"/>
+    <circle cx="298" cy="320" r="8"/>
+    <circle cx="308" cy="328" r="7.5"/>
+    <circle cx="300" cy="334" r="6"/>
+  </g>
+
+  <!-- Single-Origin Badge Overlaid -->
+  <g transform="translate(40, 370)">
+    <rect x="0" y="0" width="280" height="46" rx="8" fill="#1b110b" opacity="0.9"/>
+    <text x="14" y="20" font-family="-apple-system, sans-serif" font-size="8.5" font-weight="800" fill="#c59964" letter-spacing="1">SINGLE ORIGIN COLOMBIAN</text>
+    <text x="14" y="35" font-family="-apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">1,800m Altitude, Slow-Matured Beans</text>
+  </g>
+</svg>

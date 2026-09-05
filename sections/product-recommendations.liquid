@@ -1,0 +1,53 @@
+<section class="product-recommendations-section" style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-header" style="text-align: left; margin-bottom: 36px;">
+      <span class="text-uppercase-label">● CURATED COMBINATIONS</span>
+      <h2 style="font-size: 2.25rem; margin-top: 8px;">Complete Your Morning Ritual</h2>
+    </div>
+
+    <div class="products-grid">
+      {% render 'product-card',
+        title: "Vittal Mocha Protein Cold Brew",
+        price: 39.00,
+        compare_price: 49.00,
+        badge: "NEW FLAVOR",
+        image: "vittal-pouch.svg",
+        category: "cold-brew",
+        tag1: "Rich Dark Cocoa",
+        tag2: "Hydration Electrolytes",
+        is_sold_out: false
+      %}
+
+      {% render 'product-card',
+        title: "Vittal Barista Shaker Tumbler",
+        price: 24.00,
+        compare_price: 30.00,
+        badge: "GEAR & SHAKER",
+        image: "vittal-shaker.svg",
+        category: "gear",
+        tag1: "Double-Wall Insulated",
+        tag2: "Leak-Proof Seal",
+        is_sold_out: false
+      %}
+
+      {% render 'product-card',
+        title: "Vittal Master Trio Bundle",
+        price: 89.00,
+        compare_price: 117.00,
+        badge: "BEST VALUE • 3-PACK",
+        image: "vittal-bundle.svg",
+        category: "bundles",
+        tag1: "All 3 Core Flavors",
+        tag2: "$1.48 Per Serving",
+        is_sold_out: false
+      %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Recommendations",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,62 @@
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <!-- Mobile Toggle -->
+      <button class="header-action-btn mobile-menu-toggle" aria-label="Toggle navigation menu" onclick="document.querySelector('.header-nav').classList.toggle('active')">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="/" class="header-logo">
+        {{ section.settings.logo_text | default: 'Vittal' }}<span>.</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="header-nav" role="navigation">
+        <a href="/collections/all" class="header-nav-link active">Shop</a>
+        <a href="#benefits" class="header-nav-link">Benefits</a>
+        <a href="#ingredients" class="header-nav-link">Ingredients</a>
+        <a href="#story" class="header-nav-link">Our Story</a>
+        <a href="#reviews" class="header-nav-link">Reviews</a>
+      </nav>
+
+      <!-- Action Icons -->
+      <div class="header-actions">
+        <a href="/search" class="header-action-btn" aria-label="Search">
+          {% render 'icon-search' %}
+        </a>
+        <a href="/account" class="header-action-btn" aria-label="Account">
+          {% render 'icon-user' %}
+        </a>
+        <button class="header-action-btn" data-action="open-cart" aria-label="Cart">
+          {% render 'icon-cart' %}
+          <span class="cart-count-bubble">1</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "Vittal"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}
