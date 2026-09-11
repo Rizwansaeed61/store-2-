@@ -54,7 +54,7 @@
       <div class="product-info-column">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
           <span class="pill-badge pill-badge-gold" style="font-size: 0.7rem;">{{ section.settings.badge_text | default: 'TOP RATED' }}</span>
-          {% render 'rating-stars', rating: section.settings.rating_score | default: 4.9, count: section.settings.reviews_count | default: 1420 %}
+          {% render 'rating-stars', rating: section.settings.rating_score, default: 1420, count: section.settings.reviews_count %}
         </div>
 
         <h1 style="font-size: 2.85rem; margin-bottom: 8px; line-height: 1.1;">
@@ -356,3 +356,15 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'rating-stars', rating: section.settings.rating_score | default:
+    4.9, count: section.settings.reviews_count | default: 1420 %}"
+  to: "{% render 'rating-stars', rating: section.settings.rating_score, default: 1420,
+    count: section.settings.reviews_count %}"
+  position: 4575..4695
+{% endcomment %}

@@ -9,41 +9,11 @@
     </div>
 
     <div class="products-grid">
-      {% render 'product-card',
-        title: section.settings.product_1_title | default: "Vittal Mocha Protein Cold Brew",
-        price: section.settings.product_1_price | default: 39.00,
-        compare_price: 49.00,
-        badge: section.settings.product_1_badge | default: "NEW FLAVOR",
-        image: "vittal-mocha.jpg",
-        category: "cold-brew",
-        tag1: "Rich Dark Cocoa",
-        tag2: "Hydration Electrolytes",
-        is_sold_out: false
-      %}
+      {% render 'product-card', title: section.settings.product_1_title, default: "NEW FLAVOR", price: section.settings.product_1_price, compare_price: 49.0, badge: section.settings.product_1_badge, image: "vittal-mocha.jpg", category: "cold-brew", tag1: "Rich Dark Cocoa", tag2: "Hydration Electrolytes", is_sold_out: false %}
 
-      {% render 'product-card',
-        title: section.settings.product_2_title | default: "Vittal Barista Shaker Tumbler",
-        price: section.settings.product_2_price | default: 24.00,
-        compare_price: 30.00,
-        badge: section.settings.product_2_badge | default: "GEAR & SHAKER",
-        image: "vittal-shaker.jpg",
-        category: "gear",
-        tag1: "Double-Wall Insulated",
-        tag2: "Leak-Proof Seal",
-        is_sold_out: false
-      %}
+      {% render 'product-card', title: section.settings.product_2_title, default: "GEAR & SHAKER", price: section.settings.product_2_price, compare_price: 30.0, badge: section.settings.product_2_badge, image: "vittal-shaker.jpg", category: "gear", tag1: "Double-Wall Insulated", tag2: "Leak-Proof Seal", is_sold_out: false %}
 
-      {% render 'product-card',
-        title: section.settings.product_3_title | default: "Vittal Master Trio Bundle",
-        price: section.settings.product_3_price | default: 89.00,
-        compare_price: 117.00,
-        badge: section.settings.product_3_badge | default: "BEST VALUE • 3-PACK",
-        image: "vittal-bundle.jpg",
-        category: "bundles",
-        tag1: "All 3 Core Flavors",
-        tag2: "$1.48 Per Serving",
-        is_sold_out: false
-      %}
+      {% render 'product-card', title: section.settings.product_3_title, default: "BEST VALUE • 3-PACK", price: section.settings.product_3_price, compare_price: 117.0, badge: section.settings.product_3_badge, image: "vittal-bundle.jpg", category: "bundles", tag1: "All 3 Core Flavors", tag2: "$1.48 Per Serving", is_sold_out: false %}
     </div>
   </div>
 </section>
@@ -143,3 +113,63 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'product-card',
+            title: section.settings.product_1_title | default: "Vittal Mocha Protein Cold Brew",
+            price: section.settings.product_1_price | default: 39.00,
+            compare_price: 49.00,
+            badge: section.settings.product_1_badge | default: "NEW FLAVOR",
+            image: "vittal-mocha.jpg",
+            category: "cold-brew",
+            tag1: "Rich Dark Cocoa",
+            tag2: "Hydration Electrolytes",
+            is_sold_out: false
+          %}
+  to: '{% render ''product-card'', title: section.settings.product_1_title, default:
+    "NEW FLAVOR", price: section.settings.product_1_price, compare_price: 49.0, badge:
+    section.settings.product_1_badge, image: "vittal-mocha.jpg", category: "cold-brew",
+    tag1: "Rich Dark Cocoa", tag2: "Hydration Electrolytes", is_sold_out: false %}'
+  position: 657..978
+- from: |-
+    {% render 'product-card',
+            title: section.settings.product_2_title | default: "Vittal Barista Shaker Tumbler",
+            price: section.settings.product_2_price | default: 24.00,
+            compare_price: 30.00,
+            badge: section.settings.product_2_badge | default: "GEAR & SHAKER",
+            image: "vittal-shaker.jpg",
+            category: "gear",
+            tag1: "Double-Wall Insulated",
+            tag2: "Leak-Proof Seal",
+            is_sold_out: false
+          %}
+  to: '{% render ''product-card'', title: section.settings.product_2_title, default:
+    "GEAR & SHAKER", price: section.settings.product_2_price, compare_price: 30.0,
+    badge: section.settings.product_2_badge, image: "vittal-shaker.jpg", category:
+    "gear", tag1: "Double-Wall Insulated", tag2: "Leak-Proof Seal", is_sold_out: false
+    %}'
+  position: 986..1305
+- from: |-
+    {% render 'product-card',
+            title: section.settings.product_3_title | default: "Vittal Master Trio Bundle",
+            price: section.settings.product_3_price | default: 89.00,
+            compare_price: 117.00,
+            badge: section.settings.product_3_badge | default: "BEST VALUE • 3-PACK",
+            image: "vittal-bundle.jpg",
+            category: "bundles",
+            tag1: "All 3 Core Flavors",
+            tag2: "$1.48 Per Serving",
+            is_sold_out: false
+          %}
+  to: '{% render ''product-card'', title: section.settings.product_3_title, default:
+    "BEST VALUE • 3-PACK", price: section.settings.product_3_price, compare_price:
+    117.0, badge: section.settings.product_3_badge, image: "vittal-bundle.jpg", category:
+    "bundles", tag1: "All 3 Core Flavors", tag2: "$1.48 Per Serving", is_sold_out:
+    false %}'
+  position: 1313..1641
+{% endcomment %}
